@@ -1,9 +1,39 @@
 <header>
     <div class="header-container">
-        <nav class="header-options">
-            <header-item text="Serviços"></header-item>
-            <header-item text="Limpeza"></header-item>
-            <header-item text="Contactos"></header-item>
+        <div class="logo-container header-left">
+            <div class="logo-img">
+                <img src="assets/images/rbclean-logo.png" alt="image">
+            </div>
+            <app-logo-text></app-logo-text>
+        </div>
+        <div class="header-center">
+            <nav class="header-options">
+                <header-item text="Serviços"></header-item>
+                <header-item text="Sobre Nós"></header-item>
+                <header-item text="Trabalhos"></header-item>
+                <header-item text="Avaliações"></header-item>
+                <header-item text="Contactos"></header-item>
+            </nav>
+        </div>
+        <div class="header-right">
+            <app-button label="Agendar"></app-button>
+        </div>
+
+        <button class="hamburger" (click)="toggleMenu()">
+            <span class="material-symbols-outlined">
+                {{ menuOpen ? 'close' : 'menu' }}
+            </span>
+        </button>
+    </div>
+
+    <!-- Mobile menu OUTSIDE header-container -->
+    <div class="mobile-menu" [class.active]="menuOpen">
+        <nav>
+            <a href="#">Serviços</a>
+            <a href="#">Sobre Nós</a>
+            <a href="#">Trabalhos</a>
+            <a href="#">Avaliações</a>
+            <a href="#">Contactos</a>
         </nav>
     </div>
 </header>

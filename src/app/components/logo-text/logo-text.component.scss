@@ -1,0 +1,29 @@
+.logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 0; /* remove gap */
+    align-items: center;
+}
+
+.logo-title {
+    font-family: 'Sofia Sans Extra Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #1A7ED6;
+    line-height: 0.85; /* tighter */
+    white-space: nowrap;
+    word-spacing: -3px;
+}
+
+.logo-subtitle {
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    color: #112F47;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    word-spacing: -1px;
+}

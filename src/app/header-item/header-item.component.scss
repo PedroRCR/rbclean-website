@@ -1,27 +1,36 @@
-a{
-    position: relative;
-    color: grey;
-    font-size: 18px;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0 10px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #333;
+  text-decoration: none;
+  position: relative; /* needed for the ::after to position correctly */
 }
 
-a:after{
-    content: "";
-    position: absolute;
-    background-color: blue;
-    height: 3px;
-    width: 0;
-    left: 0;
-    bottom: -10px;
-    transition: 0.1s;
+a::after {
+  content: "";
+  position: absolute;
+  background-color: #0e97f4;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -6px;
+  transition: width 0.2s ease; /* animate width, not everything */
 }
 
-a:hover{
-    color: black;
+a:hover {
+  color: rgb(110, 108, 108);
 }
 
-a:hover:after{
-    width: 100%;
+a:hover::after {
+  width: 100%;
+}
+
+/* Active route */
+a.active::after {
+  width: 100%;
 }

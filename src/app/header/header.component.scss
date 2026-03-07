@@ -1,15 +1,148 @@
-.header-container{
-    height: 60px;
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@700&family=Sofia+Sans+Condensed:wght@700&display=swap');
+
+.header-container {
+    height: 70px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 2;
+    width: 100%;
 }
 
-.header-options{
-    gap: 100px;
+.logo-container {
+    left: 0;
+    height: 100%;
+    width: auto;
+    min-width: 200px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.logo-img {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+    }
+}
+
+.header-options {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.header-left {
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.header-center {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-right {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 5px;
+    color: #112F47;
+
+    .material-symbols-outlined {
+        font-size: 28px;
+        transition: all 0.2s ease;
+    }
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    
+    /* Instead of display: none, use max-height */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+
+    &.active {
+        max-height: 400px; /* enough to show all items */
+        opacity: 1;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            color: #112F47;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-bottom: 1px solid #f0f0f0;
+
+            &:hover {
+                background-color: #f9f9f9;
+                color: #1A7ED6;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .logo-img,
+    .header-center,
+    .header-right {
+        display: none;
+    }
+
+    .header-left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hamburger {
+        display: flex;
+        position: absolute;
+        left: 20px;
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1025px) {
+    .mobile-menu {
+        display: none !important;
+    }
+
+    .hamburger {
+        display: none;
+    }
 }
