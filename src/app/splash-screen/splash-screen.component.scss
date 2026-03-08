@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@700&family=Sofia+Sans+Condensed:wght@700&display=swap');
+
+.splash {
+    position: fixed;
+    inset: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+
+    &.hiding {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+    }
+}
+
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.splash-logo {
+    width: 100px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.splash-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.splash-title {
+    font-family: 'Sofia Sans Extra Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    color: #1A7ED6;
+    line-height: 0.85;
+    word-spacing: -3px;
+}
+
+.splash-subtitle {
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: #112F47;
+}
+
+.splash-bar {
+    width: 200px;
+    height: 3px;
+    background-color: #e0e0e0;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+.splash-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #1A7ED6;
+    border-radius: 999px;
+    animation: load 2.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.08); }
+}
+
+@keyframes load {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
