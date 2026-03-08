@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ButtonType } from '../../../shared/enums';
 
 @Component({
   selector: 'app-logo-text',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './logo-text.component.scss'
 })
 export class LogoTextComponent {
-
+  @Input() homePage!: boolean;
 }

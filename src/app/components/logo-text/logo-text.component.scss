@@ -27,3 +27,25 @@
     width: 100%;
     word-spacing: -1px;
 }
+
+.logo-title-home {
+    font-family: 'Sofia Sans Extra Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(65px, 8vw, 96px);
+    color: #1A7ED6;
+    line-height: 0.85; /* tighter */
+    white-space: nowrap;
+    word-spacing: -3px;
+}
+
+.logo-subtitle-home {
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(23px, 3vw, 32px);
+    color: #112F47;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    word-spacing: -1px;
+}

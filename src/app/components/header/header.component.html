@@ -4,7 +4,9 @@
             <div class="logo-img">
                 <img src="assets/images/rbclean-logo.png" alt="image">
             </div>
-            <app-logo-text></app-logo-text>
+            <div class="logo-text">
+                <app-logo-text></app-logo-text>
+            </div>
         </div>
         <div class="header-center">
             <nav class="header-options">
@@ -16,7 +18,7 @@
             </nav>
         </div>
         <div class="header-right">
-            <app-button label="Agendar"></app-button>
+            <app-button [buttonType]="ButtonType.primary" label="Agendar"></app-button>
         </div>
 
         <button class="hamburger" (click)="toggleMenu()">
