@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+section {
+    margin: clamp(60px, 8vw, 100px) clamp(15px, 2vw, 20px) clamp(10px, 2vw, 20px) clamp(15px, 2vw, 20px);
+}
+
+.section-title {
+    text-align: center;
+    width: 100%;
+}
+
+.section-title span {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 48px);
+    color: #39628D;
+    letter-spacing: 0;
+}
+
+.section-description {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: clamp(14px, 1.5vw, 20px);
+    letter-spacing: 0;
+    max-width: min(90%, 900px);
+    margin: clamp(8px, 1.5vw, 16px) auto 0 auto;
+}
+
+/* ── Grid ── */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(30px, 2.5vw, 46px);
+    max-width: min(90%, 1100px);
+    margin: clamp(24px, 4vw, 48px) auto 0 auto;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        max-width: min(80%, 360px);
+    }
+}

@@ -3,11 +3,12 @@ import { ButtonComponent } from "../../components/button/button.component";
 import { LogoTextComponent } from "../../components/logo-text/logo-text.component";
 import { ButtonType } from '../../../shared/enums';
 import { ResponsiveService } from '../../../shared/services/ResponsiveService';
+import { ServicesComponent } from "../services/services.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ButtonComponent, LogoTextComponent],
+  imports: [ButtonComponent, LogoTextComponent, ServicesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
