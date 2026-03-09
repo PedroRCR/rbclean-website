@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+#gallery {
+    padding: clamp(48px, 7vw, 96px) clamp(16px, 5vw, 64px);
+    background: #f5f5f2;
+}
+
+/* ── Title ── */
+.section-title {
+    text-align: center;
+    margin-bottom: clamp(24px, 4vw, 48px);
+
+    span {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 700;
+        font-size: clamp(28px, 4vw, 48px);
+        color: #39628D;
+    }
+}
+
+/* ── Grid ── */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(8px, 1.5vw, 16px);
+    max-width: min(92%, 1100px);
+    margin: 0 auto;
+}
+
+/* ── Item ── */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    background: #dde3ea;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.07);
+    }
+
+    &:hover .gallery-overlay {
+        opacity: 1;
+    }
+}
+
+/* ── Overlay ── */
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(57, 98, 141, 0.72);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.overlay-icon {
+    font-size: 36px;
+    color: #ffffff;
+    line-height: 1;
+    font-weight: 300;
+}
+
+.overlay-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(12px, 1.2vw, 15px);
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 12px;
+}
+
+/* ── Lightbox ── */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 20, 35, 0.92);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 860px;
+    width: 100%;
+
+    img {
+        width: 100%;
+        max-height: 75vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+}
+
+.lightbox-caption {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    margin-top: 14px;
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+
+    &:hover { opacity: 1; }
+}
+
+.lightbox-nav {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 64px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 clamp(8px, 3vw, 32px);
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+    user-select: none;
+
+    &:hover { opacity: 1; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lightbox-nav {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
