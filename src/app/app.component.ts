@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from "./screens/home/home.component";
-import { SplashScreenComponent } from "./splash-screen/splash-screen.component";
+import { SplashScreenComponent } from "./screens/splash-screen/splash-screen.component";
 
 @Component({
   selector: 'app-root',
