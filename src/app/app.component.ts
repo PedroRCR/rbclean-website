@@ -9,7 +9,7 @@ import { SplashScreenComponent } from "./screens/splash-screen/splash-screen.com
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [HeaderComponent, HomeComponent, SplashScreenComponent]
+  imports: [HeaderComponent, HomeComponent]
 })
 export class AppComponent {
   title = 'rbclean-website';
