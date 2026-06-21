@@ -1,0 +1,15 @@
+<div class="gallery">
+  <div class="main-image" [style.background-image]="'url(' + images[0] + ')'">
+    <button class="left-arrow" (click)="previousImage()">
+      <span class="arrow-icon"><</span>
+    </button>
+    <button class="right-arrow" (click)="nextImage()">
+      <span class="arrow-icon">></span>
+    </button>
+  </div>
+  <div class="secondary-images">
+    @for (img of images.slice(1); track img) {
+      <div class="image" [style.background-image]="'url(' + img + ')'"></div>
+    }
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.evaluation-body {
+  background: white;
+  border-radius: 40px 0;
+  padding: 10px 20px;
+  width: 90%;
+   margin: 0 auto;
+  height: 150px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.evaluation-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.evaluation-stars {
+  font-size: clamp(20px, 4vw, 36px);
+  color: #f5c518;
+}
+
+.evaluation-comments {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.7;
+  font-style: italic;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

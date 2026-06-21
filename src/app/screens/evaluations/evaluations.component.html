@@ -1,0 +1,22 @@
+<div class="evaluation-card">
+  <div class="evaluations-header">
+    <div class="evaluations-header-item">
+      <div class="evaluations-header-item-number">100+</div>
+      <div class="evaluations-header-item-text">Clientes Satisfeitos</div>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="evaluations-header-item">
+      <div class="evaluations-header-item-number">300+</div>
+      <div class="evaluations-header-item-text">Serviços Realizados</div>
+    </div>
+  </div>
+
+  <div class="evaluations-body">
+    @for (evaluation of ListOfEvaluations; track $index) {
+        <app-evaluation
+          [numberOfStars]="evaluation.numberOfStars"
+          [comment]="evaluation.comment"
+        />
+    }
+  </div>
+</div>
