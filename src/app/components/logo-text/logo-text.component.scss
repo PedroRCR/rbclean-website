@@ -1,51 +1,55 @@
 .logo {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-    gap: 0; /* remove gap */
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  align-items: flex-start;
 }
 
 .logo-title {
-    font-family: 'Sofia Sans Extra Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 40px;
-    color: #1A7ED6;
-    line-height: 0.85; /* tighter */
-    white-space: nowrap;
-    word-spacing: -3px;
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #1a7ed6;
+  line-height: 0.85;
+  white-space: nowrap;
+  word-spacing: -3px;
+  margin-left: -0.03em;
 }
 
 .logo-subtitle {
-    font-family: 'Sofia Sans Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 10px;
-    color: #112F47;
-    line-height: 1;
-    white-space: nowrap;
-    text-align: center;
-    width: 100%;
-    word-spacing: -1px;
+  font-family: "Sofia Sans Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  color: #112f47;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
+  word-spacing: -1px;
 }
 
 .logo-title-home {
-    font-family: 'Sofia Sans Extra Condensed', sans-serif;
-    font-weight: 700;
-    font-size: clamp(65px, 8vw, 96px);
-    color: #1A7ED6;
-    line-height: 0.85; /* tighter */
-    white-space: nowrap;
-    word-spacing: -3px;
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-weight: 700;
+  font-size: clamp(6rem, 4.2048rem + 5.7447vw, 9.375rem);
+  color: #1a7ed6;
+  line-height: 0.7;
+  margin-left: -0.03em;
+  text-align: left;
 }
 
 .logo-subtitle-home {
-    font-family: 'Sofia Sans Condensed', sans-serif;
-    font-weight: 700;
-    font-size: clamp(23px, 3vw, 32px);
-    color: #112F47;
-    line-height: 1;
-    white-space: nowrap;
-    text-align: center;
-    width: 100%;
-    word-spacing: -1px;
+  font-family: "Sofia Sans Condensed", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.625rem, 1.2926rem + 1.0638vw, 2.25rem);
+  color: #112f47;
+  text-align: left;
+}
+
+.centered-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  align-items: center;
+  text-align: center;
 }

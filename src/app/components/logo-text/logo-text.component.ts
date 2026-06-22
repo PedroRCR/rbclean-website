@@ -10,4 +10,5 @@ import { ButtonType } from '../../../shared/enums';
 })
 export class LogoTextComponent {
   @Input() homePage!: boolean;
+  @Input() center!: boolean;
 }

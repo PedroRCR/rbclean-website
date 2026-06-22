@@ -1,11 +1,11 @@
 /* button.component.scss */
 .btn-primary {
-  background-color: #1A7ED6;
+  background-color: #1a7ed6;
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 20px;
-  border: 1px solid #1A7ED6;
+  border: 1px solid #1a7ed6;
   border-radius: 5px;
   width: 171px;
   height: 44px;
@@ -18,12 +18,12 @@
 }
 
 .btn-secondary {
-  background-color: #1A7ED6;
+  background-color: #1a7ed6;
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: clamp(20px, 2.5vw, 25px);
-  border: 1px solid #1A7ED6;
+  border: 1px solid #1a7ed6;
   border-radius: 5px;
   width: clamp(200px, 30vw, 280px);
   height: clamp(50px, 6vw, 55px);
@@ -32,5 +32,13 @@
 
   &:hover {
     background-color: #1569b8;
+  }
+
+  @media (max-width: 768px) {
+    .btn-secondary {
+      width: 100%;
+      font-size: 20px;
+      height: 52px;
+    }
   }
 }

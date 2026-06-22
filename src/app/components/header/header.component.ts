@@ -17,6 +17,6 @@ export class HeaderComponent {
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
-    console.log('menuOpen:', this.menuOpen); // check if it's firing
+    console.log('menuOpen:', this.menuOpen); 
   }
 }
