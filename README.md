@@ -16,5 +16,5 @@ Figma https://www.figma.com/design/RlYLsSSGTm3p525twXmzOW/Sem-t%C3%ADtulo?node-i
 
 ##
 
-All project and images are allowed to be public.
+All project and images are allowed to be public by the client.
 
