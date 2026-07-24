@@ -1,14 +1,10 @@
 # RbcleanWebsite
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+Project that will be the website of cleaning company RBClean.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -17,4 +13,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Design ideas 
 
 Figma https://www.figma.com/design/RlYLsSSGTm3p525twXmzOW/Sem-t%C3%ADtulo?node-id=0-1&p=f
+
+##
+
+All project and images are allowed to be public.
 
