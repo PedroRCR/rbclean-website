@@ -27,11 +27,11 @@
   <!-- Mobile menu OUTSIDE header-container -->
   <div class="mobile-menu" [class.active]="menuOpen">
     <nav>
-      <a href="#">Serviços</a>
-      <a href="#">Sobre Nós</a>
-      <a href="#">Trabalhos</a>
-      <a href="#">Avaliações</a>
-      <a href="#">Contactos</a>
+      <a (click)="scrollTo('services')">Serviços</a>
+      <a (click)="scrollTo('about-us')">Sobre Nós</a>
+      <a (click)="scrollTo('evaluations')">Avaliações</a>
+      <a (click)="scrollTo('gallery')">Trabalhos</a>
+      <a (click)="scrollTo('contacts')">Contactos</a>
     </nav>
   </div>
 </header>

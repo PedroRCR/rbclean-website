@@ -18,6 +18,7 @@ export class HeaderComponent {
   }
 
   scrollTo(sectionId: string) {
-  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-}
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    this.menuOpen = false;
+  }
 }
