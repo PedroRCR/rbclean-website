@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 .about-us-section {
   display: flex;
   flex-direction: row;
@@ -11,14 +15,15 @@
   );
   overflow: hidden;
   position: relative;
+  z-index: 1;
   border-radius: 5px;
-  margin: 1%;
+  padding-top: 250px;
 }
 
 /* ── Text side ── */
 .about-content {
   flex: 1;
-  padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 72px);
+  padding: clamp(40px, 6vw, 80px) clamp(24px, 8vw, 150px);
   z-index: 2;
 }
 

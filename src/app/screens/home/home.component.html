@@ -1,5 +1,6 @@
   <a
   class="whatsapp-btn"
+    [class.show]="whatsappBtnVisible"
     href="https://wa.me/351932664130"
     target="_blank"
     rel="noopener noreferrer"
@@ -32,7 +33,6 @@
 
 <div class="home">
   <div class="home-top">
-    <!--app-logo-text [homePage]="true" [center]="true"></app-logo-text-->
     <app-logo-text [homePage]="true"></app-logo-text>
     <div class="home-description">
       <div class="home-description-text">

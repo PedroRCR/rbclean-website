@@ -4,11 +4,14 @@ body{
 }
 
 app-services,
-app-about-us,
 app-evaluations,
 app-gallery,
 app-contacts {
   display: block;
   margin-top: 5%;
+}
+
+app-about-us {
+  display: block;
 }
 

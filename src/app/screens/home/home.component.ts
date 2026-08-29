@@ -8,4 +8,12 @@ import { LogoTextComponent } from '../../components/logo-text/logo-text.componen
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  whatsappBtnVisible = false;
+
+  constructor() {
+    setTimeout(() => {
+      this.whatsappBtnVisible = true;
+    }, 2000);
+  }
+}
