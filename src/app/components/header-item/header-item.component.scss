@@ -24,6 +24,7 @@ a::after {
 
 a:hover {
   color: rgb(110, 108, 108);
+  cursor: pointer;
 }
 
 a:hover::after {

@@ -19,4 +19,8 @@ export class HeaderComponent {
     this.menuOpen = !this.menuOpen;
     console.log('menuOpen:', this.menuOpen); 
   }
+
+  scrollTo(sectionId: string) {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+}
 }

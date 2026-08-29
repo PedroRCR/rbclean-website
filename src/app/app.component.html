@@ -1,13 +1,34 @@
-<!--@if (showSplash) {
-  <app-splash-screen (finished)="onSplashFinished()"></app-splash-screen>
+<app-header></app-header>
+<app-home></app-home>
+
+@defer {
+  <app-services></app-services>
+}
+@defer {
+  <app-about-us></app-about-us>
+}
+@defer {
+  <app-evaluations></app-evaluations>
+}
+@defer {
+  <app-gallery></app-gallery>
+}
+@defer {
+  <app-contacts></app-contacts>
 }
 
-@if (!showSplash) {} -->
-  <app-header></app-header>
-  <app-home></app-home>
-  <app-services></app-services>
-  <app-about-us></app-about-us>
-  <app-evaluations></app-evaluations>
-  <app-gallery></app-gallery>
-  <app-contacts></app-contacts>
-
+<!--
+  @if (showSplash) {
+    <app-splash-screen (finished)="onSplashFinished()"></app-splash-screen>
+  }
+  
+  @if (!showSplash) {
+    <app-header></app-header>
+    <app-home></app-home>
+    <app-services></app-services>
+    <app-about-us></app-about-us>
+    <app-evaluations></app-evaluations>
+    <app-gallery></app-gallery>
+    <app-contacts></app-contacts>
+  }
+  -->

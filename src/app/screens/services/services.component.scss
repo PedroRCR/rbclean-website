@@ -1,8 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
-.section-title {
+#services {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: clamp(40px, 5vw, 80px) 0;
+    overflow: hidden; 
+}
+
+.section-title,
+.section-description {
+    padding: 0 24px;
     text-align: center;
-    width: 100%;
 }
 
 .section-title span {
@@ -10,7 +22,6 @@
     font-weight: 700;
     font-size: clamp(28px, 4vw, 48px);
     color: #39628D;
-    letter-spacing: 0;
 }
 
 .section-description {
@@ -18,30 +29,89 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 400;
     font-size: clamp(14px, 1.5vw, 20px);
-    letter-spacing: 0;
     max-width: min(90%, 900px);
     margin: clamp(8px, 1.5vw, 16px) auto 0 auto;
 }
 
-/* ── Grid ── */
+/* ── Grid wrapper (reference point for nav buttons) ── */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(30px, 2.5vw, 46px);
-    max-width: min(90%, 1100px);
-    margin: clamp(24px, 4vw, 48px) auto 0 auto;
+    position: relative;
+}
+
+/* ── Nav arrows (sit on top, outside the scrolling track) ── */
+.carousel-nav {
+    position: absolute;
+    top: 0;
+    right: clamp(24px, 5vw, 80px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2;
+}
+
+.carousel-nav button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, .9);
+    cursor: pointer;
+    font-size: 18px;
+    color: #39628D;
+    transition: background .2s ease, opacity .2s ease;
+
+    &:hover:not(:disabled) {
+        background: #fff;
+    }
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+}
+
+/* ── Carousel track (only this div scrolls) ── */
+.cards-track {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(24px, 2.5vw, 46px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: clamp(56px, 7vw, 90px) 0 clamp(24px, 4vw, 48px) clamp(24px, 5vw, 80px);
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.service-card {
+    flex: 0 0 auto;         
+    scroll-snap-align: start;
+    height: 478px;
+    width: clamp(280px, 30vw, 389px);
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .cards-track {
+        padding-left: 24px;
+        padding-right: 24px;
+        gap: 16px;
+        scroll-snap-type: x mandatory;
     }
-}
 
-@media (max-width: 480px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-        max-width: min(80%, 360px);
+    .service-card {
+        width: calc(100vw - 48px);
+        height: 400px;
+        scroll-snap-align: center;
+    }
+
+    .carousel-nav {
+        top: 0;
+        right: 24px;
     }
 }
