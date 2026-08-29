@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { HeaderItemComponent } from "../header-item/header-item.component";
-import { ButtonComponent } from '../button/button.component';
 import { LogoTextComponent } from '../logo-text/logo-text.component';
 import { ButtonType } from '../../../shared/enums';
 
@@ -9,7 +8,7 @@ import { ButtonType } from '../../../shared/enums';
   standalone: true,
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
-  imports: [HeaderItemComponent, ButtonComponent, LogoTextComponent, ]
+  imports: [HeaderItemComponent, LogoTextComponent, ]
 })
 export class HeaderComponent {
   ButtonType = ButtonType;
