@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ButtonType } from '../../../shared/enums';
 
 @Component({
   selector: 'app-logo-text',

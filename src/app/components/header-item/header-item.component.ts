@@ -9,10 +9,10 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderItemComponent {
   @Input() text!: string;
-  @Input() fragment!: string;
+  @Input() sectionId!: string;
 
   scrollTo() {
-    const element = document.getElementById(this.fragment);
+    const element = document.getElementById(this.sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }

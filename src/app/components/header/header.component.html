@@ -1,37 +1,37 @@
 <header>
-    <div class="header-container">
-        <div class="logo-container header-left">
-            <div class="logo-img">
-                <img src="assets/images/rbclean-logo.png" alt="image">
-            </div>
-            <div class="logo-text">
-                <app-logo-text></app-logo-text>
-            </div>
-        </div>
-        <div class="header-center">
-            <nav class="header-options">
-                <header-item text="Serviços" fragmentID="services"></header-item>
-                <header-item text="Sobre Nós" fragmentID="about-us"></header-item>
-                <header-item text="Trabalhos" fragmentID="works"></header-item>
-                <header-item text="Avaliações" fragmentID="evaluations"></header-item>
-                <header-item text="Contactos" fragmentID="contacts"></header-item>
-            </nav>
-        </div>
-        <button class="hamburger" (click)="toggleMenu()">
-            <span class="material-symbols-outlined">
-                {{ menuOpen ? 'close' : 'menu' }}
-            </span>
-        </button>
+  <div class="header-container">
+    <div class="logo-container header-left">
+      <div class="logo-img">
+        <img src="assets/images/rbclean-logo.png" alt="image" />
+      </div>
+      <div class="logo-text">
+        <app-logo-text></app-logo-text>
+      </div>
     </div>
+    <div class="header-center">
+      <nav class="header-options">
+        <header-item text="Serviços" sectionId="services"></header-item>
+        <header-item text="Sobre Nós" sectionId="about-us"></header-item>
+        <header-item text="Avaliações" sectionId="evaluations"></header-item>
+        <header-item text="Trabalhos" sectionId="gallery"></header-item>
+        <header-item text="Contactos" sectionId="contacts"></header-item>
+      </nav>
+    </div>
+    <button class="hamburger" (click)="toggleMenu()">
+      <span class="material-symbols-outlined">
+        {{ menuOpen ? "close" : "menu" }}
+      </span>
+    </button>
+  </div>
 
-    <!-- Mobile menu OUTSIDE header-container -->
-    <div class="mobile-menu" [class.active]="menuOpen">
-        <nav>
-            <a href="#">Serviços</a>
-            <a href="#">Sobre Nós</a>
-            <a href="#">Trabalhos</a>
-            <a href="#">Avaliações</a>
-            <a href="#">Contactos</a>
-        </nav>
-    </div>
+  <!-- Mobile menu OUTSIDE header-container -->
+  <div class="mobile-menu" [class.active]="menuOpen">
+    <nav>
+      <a href="#">Serviços</a>
+      <a href="#">Sobre Nós</a>
+      <a href="#">Trabalhos</a>
+      <a href="#">Avaliações</a>
+      <a href="#">Contactos</a>
+    </nav>
+  </div>
 </header>

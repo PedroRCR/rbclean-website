@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { LogoTextComponent } from '../../components/logo-text/logo-text.component';
-import { ButtonType } from '../../../shared/enums';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +8,4 @@ import { ButtonType } from '../../../shared/enums';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-  ButtonType = ButtonType;
-}
+export class HomeComponent {}

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderItemComponent } from "../header-item/header-item.component";
 import { LogoTextComponent } from '../logo-text/logo-text.component';
-import { ButtonType } from '../../../shared/enums';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +10,6 @@ import { ButtonType } from '../../../shared/enums';
   imports: [HeaderItemComponent, LogoTextComponent, ]
 })
 export class HeaderComponent {
-  ButtonType = ButtonType;
   menuOpen = false;
 
   toggleMenu() {

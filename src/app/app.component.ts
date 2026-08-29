@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './screens/home/home.component';
-import { LogoTextComponent } from './components/logo-text/logo-text.component';
 import { ServicesComponent } from './screens/services/services.component';
 import { AboutUsComponent } from './screens/about-us/about-us.component';
 import { EvaluationsComponent } from './screens/evaluations/evaluations.component';
@@ -16,7 +15,6 @@ import { ContactsComponent } from './screens/contacts/contacts.component';
   imports: [
     HeaderComponent,
     HomeComponent,
-    LogoTextComponent,
     ServicesComponent,
     AboutUsComponent,
     EvaluationsComponent,

@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
-
-#about {
+.about-us-section {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -77,7 +75,7 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  #about {
+  .about-us-section {
     flex-direction: column;
   }
 

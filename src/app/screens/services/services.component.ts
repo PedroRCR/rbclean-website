@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ServiceCardComponent } from "../../components/service-card/service-card.component";
 
 export interface ServiceItem {
@@ -10,7 +9,7 @@ export interface ServiceItem {
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, ServiceCardComponent],
+  imports: [ServiceCardComponent],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
