@@ -8,13 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './header-item.component.scss',
 })
 export class HeaderItemComponent {
-  @Input() text!: string;
-  @Input() sectionId!: string;
-
-  scrollTo() {
-    const element = document.getElementById(this.sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
+  @Input({ required: true }) text!: string;
+  @Input({ required: true }) sectionId!: string;
 }

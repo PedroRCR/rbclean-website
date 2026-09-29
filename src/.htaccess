@@ -1,0 +1,22 @@
+# Configuração para o alojamento Apache (cPanel).
+
+Options -Indexes
+DirectoryIndex index.html
+
+# Cache: ficheiros com hash no nome (JS/CSS) podem ficar em cache 1 ano;
+# o index.html nunca fica em cache, para as atualizações aparecerem logo.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpg|png|svg|woff2?)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml
+</IfModule>

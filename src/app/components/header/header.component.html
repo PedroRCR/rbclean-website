@@ -1,23 +1,21 @@
 <header>
   <div class="header-container">
-    <div class="logo-container header-left">
+    <a class="logo-container header-left" href="#home">
       <div class="logo-img">
-        <img src="assets/images/rbclean-logo.png" alt="image" />
+        <img src="assets/images/rbclean-logo.webp" alt="RB Clean" width="227" height="230" />
       </div>
       <div class="logo-text">
         <app-logo-text></app-logo-text>
       </div>
-    </div>
+    </a>
     <div class="header-center">
       <nav class="header-options">
-        <header-item text="Serviços" sectionId="services"></header-item>
-        <header-item text="Sobre Nós" sectionId="about-us"></header-item>
-        <header-item text="Avaliações" sectionId="evaluations"></header-item>
-        <header-item text="Trabalhos" sectionId="gallery"></header-item>
-        <header-item text="Contactos" sectionId="contacts"></header-item>
+        @for (item of navItems; track item.sectionId) {
+          <header-item [text]="item.label" [sectionId]="item.sectionId"></header-item>
+        }
       </nav>
     </div>
-    <button class="hamburger" (click)="toggleMenu()">
+    <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Menu">
       <span class="material-symbols-outlined">
         {{ menuOpen ? "close" : "menu" }}
       </span>
@@ -27,11 +25,9 @@
   <!-- Mobile menu OUTSIDE header-container -->
   <div class="mobile-menu" [class.active]="menuOpen">
     <nav>
-      <a (click)="scrollTo('services')">Serviços</a>
-      <a (click)="scrollTo('about-us')">Sobre Nós</a>
-      <a (click)="scrollTo('evaluations')">Avaliações</a>
-      <a (click)="scrollTo('gallery')">Trabalhos</a>
-      <a (click)="scrollTo('contacts')">Contactos</a>
+      @for (item of navItems; track item.sectionId) {
+        <a [href]="'#' + item.sectionId" (click)="closeMenu()">{{ item.label }}</a>
+      }
     </nav>
   </div>
 </header>
