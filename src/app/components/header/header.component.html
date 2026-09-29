@@ -1,8 +1,13 @@
 <header>
   <div class="header-container">
-    <a class="logo-container header-left" href="#home">
+    <a class="logo-container header-left" href="#home" [class.hidden]="atHome">
       <div class="logo-img">
-        <img src="assets/images/rbclean-logo.webp" alt="RB Clean" width="227" height="230" />
+        <img
+          src="assets/images/rbclean-logo.webp"
+          alt="RB Clean"
+          width="227"
+          height="230"
+        />
       </div>
       <div class="logo-text">
         <app-logo-text></app-logo-text>
@@ -11,11 +16,20 @@
     <div class="header-center">
       <nav class="header-options">
         @for (item of navItems; track item.sectionId) {
-          <header-item [text]="item.label" [sectionId]="item.sectionId"></header-item>
+          <header-item
+            [text]="item.label"
+            [sectionId]="item.sectionId"
+            [active]="item.sectionId === activeSection"
+          ></header-item>
         }
       </nav>
     </div>
-    <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Menu">
+    <button
+      class="hamburger"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Menu"
+    >
       <span class="material-symbols-outlined">
         {{ menuOpen ? "close" : "menu" }}
       </span>
@@ -26,7 +40,12 @@
   <div class="mobile-menu" [class.active]="menuOpen">
     <nav>
       @for (item of navItems; track item.sectionId) {
-        <a [href]="'#' + item.sectionId" (click)="closeMenu()">{{ item.label }}</a>
+        <a
+          [href]="'#' + item.sectionId"
+          [class.active]="item.sectionId === activeSection"
+          (click)="closeMenu()"
+          >{{ item.label }}</a
+        >
       }
     </nav>
   </div>

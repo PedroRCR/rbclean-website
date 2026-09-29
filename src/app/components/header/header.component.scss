@@ -30,6 +30,12 @@
     align-items: center;
     gap: 10px;
     white-space: nowrap;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 .logo-img {
@@ -118,6 +124,12 @@
             &:hover {
                 background-color: #f9f9f9;
                 color: #1A7ED6;
+            }
+
+            &.active {
+                color: #1A7ED6;
+                font-weight: 600;
+                box-shadow: inset 3px 0 0 #1A7ED6;
             }
         }
     }

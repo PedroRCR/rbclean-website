@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core';
 export class HeaderItemComponent {
   @Input({ required: true }) text!: string;
   @Input({ required: true }) sectionId!: string;
+  @Input() active = false;
 }

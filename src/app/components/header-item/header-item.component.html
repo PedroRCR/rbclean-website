@@ -1,1 +1,6 @@
-<a [href]="'#' + sectionId">{{text}}</a>
+<a
+  [href]="'#' + sectionId"
+  [class.active]="active"
+  [attr.aria-current]="active ? 'location' : null"
+  >{{ text }}</a
+>
