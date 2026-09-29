@@ -10,8 +10,12 @@ import { Component, Input } from '@angular/core';
 export class EvaluationComponent {
   @Input({ required: true }) numberOfStars!: number;
   @Input({ required: true }) comment!: string;
+  @Input({ required: true }) name!: string;
 
-  get stars(): boolean[] {
-    return Array.from({ length: 5 }, (_, i) => i < this.numberOfStars);
+  get ratingText(): string {
+    return this.numberOfStars.toLocaleString('pt-PT', {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    });
   }
 }

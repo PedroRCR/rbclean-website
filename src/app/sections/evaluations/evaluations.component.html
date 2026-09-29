@@ -1,22 +1,53 @@
 <div class="evaluation-card">
   <div class="evaluations-header" #statsHeader>
     <div class="evaluations-header-item">
-      <div class="evaluations-header-item-number">{{ clientesSatisfeitos }}+</div>
+      <div class="evaluations-header-item-number">
+        {{ clientesSatisfeitos }}+
+      </div>
       <div class="evaluations-header-item-text">Clientes Satisfeitos</div>
     </div>
     <div class="vertical-line"></div>
     <div class="evaluations-header-item">
-      <div class="evaluations-header-item-number">{{ servicosRealizados }}+</div>
+      <div class="evaluations-header-item-number">
+        {{ servicosRealizados }}+
+      </div>
       <div class="evaluations-header-item-text">Serviços Realizados</div>
     </div>
   </div>
 
   <div class="evaluations-body">
     @for (evaluation of evaluations; track $index) {
-        <app-evaluation
-          [numberOfStars]="evaluation.numberOfStars"
-          [comment]="evaluation.comment"
-        />
+      <app-evaluation
+        [name]="evaluation.name"
+        [numberOfStars]="evaluation.numberOfStars"
+        [comment]="evaluation.comment"
+      />
     }
+  </div>
+
+  <div class="google-reviews">
+    <div class="google-rating">
+      <span class="google-rating-stars" aria-hidden="true">★</span>
+      <strong>{{ ratingText }}</strong
+      >&nbsp;·&nbsp; +{{ google.count }} avaliações no Google
+    </div>
+    <div class="google-actions">
+      <a
+        class="btn btn-outline"
+        [href]="google.reviewsUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ver todas no Google
+      </a>
+      <a
+        class="btn"
+        [href]="google.writeReviewUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Deixar avaliação
+      </a>
+    </div>
   </div>
 </div>

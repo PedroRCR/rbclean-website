@@ -12,6 +12,7 @@ export interface ServiceItem {
 }
 
 export interface Evaluation {
+  name: string;
   numberOfStars: number;
   comment: string;
 }
@@ -47,41 +48,58 @@ export const STATS = {
   servicosRealizados: 300,
 };
 
+// Perfil de Empresa no Google. Atualizar a nota e o total à mão de vez em quando.
+const GOOGLE_PLACE_ID = 'ChIJ8fv6rGZJOg0RO4pAA7s8xkY';
+
+export const GOOGLE_REVIEWS = {
+  rating: 5.0,
+  count: 50,
+  reviewsUrl: `https://search.google.com/local/reviews?placeid=${GOOGLE_PLACE_ID}`,
+  writeReviewUrl: `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`,
+};
+
 // Quantas avaliações aparecem de cada vez (escolhidas ao acaso no browser).
 export const EVALUATIONS_SHOWN = 3;
 
 export const EVALUATIONS: Evaluation[] = [
   {
-    numberOfStars: 5,
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
     comment:
       'Excelente profissional, tinha tinta numas cadeiras e a minha criança tinha feito uma pintura no sofá e ficou tudo impecável! Recomendo!',
   },
   {
-    numberOfStars: 5,
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
     comment: 'Limpeza bem feita, rápida e a um ótimo preço!',
   },
   {
-    numberOfStars: 5,
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
     comment:
       'Excelente profissional...Trabalhou Com todo o cuidado durante todo o processo, não só com o mobiliário como com o espaço envolvente... Muito obrigado',
   },
   {
-    numberOfStars: 5,
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
     comment:
       'O meu sofá estava com bastantes manchas. Posso dizer que ficou como novo. O Rui fez um excelente trabalho.',
   },
   {
-    numberOfStars: 5,
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
     comment:
       'Atendimento espetacular, o sofá ficou impecável, MUITO cheiroso, todos elogiaram, ficou como novo! Recomendo a todos, serviços de confiança, 5 ⭐️',
   },
   {
-    numberOfStars: 5,
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
     comment:
       'Fiquei muito satisfeito com o serviço! O Rui foi extremamente profissional, pontual e rápido na limpeza dos bancos do meu carro. O resultado ficou excelente, os estofados parecem novos! Além disso, ainda teve o cuidado de limpar o tecido das portas, o que foi uma ótima surpresa. Atendimento de qualidade, com atenção aos detalhes. Recomendo sem dúvida!',
   },
   {
-    numberOfStars: 5,
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
     comment:
       'Trabalho muito bem feito, ficou super limpo que até parecia novo como veio da loja',
   },

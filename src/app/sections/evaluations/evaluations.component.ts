@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnDestroy, ViewChild, afterNextRender } from '@angular/core';
+import { Component, ElementRef, NgZone, OnDestroy, ViewChild, afterNextRender, inject } from '@angular/core';
 import { EvaluationComponent } from '../../components/evaluation/evaluation.component';
-import { EVALUATIONS, EVALUATIONS_SHOWN, Evaluation, STATS } from '../../content';
+import { EVALUATIONS, EVALUATIONS_SHOWN, Evaluation, GOOGLE_REVIEWS, STATS } from '../../content';
 
 const COUNT_UP_DURATION_MS = 1500;
 
@@ -14,23 +14,26 @@ const COUNT_UP_DURATION_MS = 1500;
 export class EvaluationsComponent implements OnDestroy {
   @ViewChild('statsHeader') statsHeader?: ElementRef<HTMLElement>;
 
-  // O HTML pré-renderizado mostra os números finais e as primeiras avaliações;
-  // no browser a contagem é animada e as avaliações são sorteadas.
   clientesSatisfeitos = STATS.clientesSatisfeitos;
   servicosRealizados = STATS.servicosRealizados;
   evaluations: Evaluation[] = EVALUATIONS.slice(0, EVALUATIONS_SHOWN);
 
-  private observer?: IntersectionObserver;
+  readonly google = GOOGLE_REVIEWS;
+  readonly ratingText = GOOGLE_REVIEWS.rating.toLocaleString('pt-PT', { minimumFractionDigits: 1 });
+
+  private readonly zone = inject(NgZone);
+  private observer?: IntersectionObserver; 
 
   constructor() {
-    // O setTimeout aplica as alterações num novo ciclo, já depois da hidratação.
     afterNextRender(() => {
-      setTimeout(() => {
-        this.evaluations = [...EVALUATIONS]
-          .sort(() => Math.random() - 0.5)
-          .slice(0, EVALUATIONS_SHOWN);
-        this.setupCountUp();
-      });
+      this.zone.run(() =>
+        setTimeout(() => {
+          this.evaluations = [...EVALUATIONS]
+            .sort(() => Math.random() - 0.5)
+            .slice(0, EVALUATIONS_SHOWN);
+          this.setupCountUp();
+        }),
+      );
     });
   }
 

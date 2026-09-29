@@ -10,14 +10,14 @@
 }
 
 .evaluation-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 6px 0;
+  font-family: "Montserrat", sans-serif;
+  color: #555;
 }
 
-.evaluation-stars {
-  font-size: clamp(20px, 4vw, 36px);
-  color: #f5c518;
+.evaluation-star {
+  color: #f5b301;
+  font-size: 22px;
 }
 
 .evaluation-comments {
