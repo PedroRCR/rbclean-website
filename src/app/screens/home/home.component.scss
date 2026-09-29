@@ -1,6 +1,7 @@
 .home {
   background-image:
     linear-gradient(to bottom, white 0%, transparent 30%),
+    linear-gradient(to top, white 0%, transparent 25%),
     url("../../../assets/images/rbclean-home-img.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,8 +22,8 @@
   justify-content: center;
   flex-direction: column;
   gap: clamp(12px, 2vw, 24px);
-  padding-top: clamp(5%, 4vw, 10%);
-  padding-left: clamp(5%, 8vw, 10%);
+  padding-top: clamp(24px, 4vw, 80px);
+  padding-left: clamp(24px, 8vw, 120px);
 }
 
 .home-description-text {
@@ -32,7 +33,7 @@
   color: #656565;
   line-height: 1;
   max-width: min(90%, 870px);
-  margin-top: clamp(3%, 4vw, 5%);
+  margin-top: clamp(12px, 4vw, 32px);
 }
 
 .home-description-subtext {
@@ -49,6 +50,7 @@
   .home {
     background-image:
       linear-gradient(to bottom, white 0%, transparent 25%),
+      linear-gradient(to top, white 0%, transparent 20%),
       url("../../../assets/images/rbclean-home-img-mobile.png");
   }
 
@@ -73,6 +75,8 @@
 }
 
 .whatsapp-btn {
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  font-size: 16px;
   position: fixed;
   bottom: 32px;
   right: 32px;
@@ -89,6 +93,7 @@
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
   flex-direction: row;
   gap: 10%;
+  color: white;
 
   opacity: 0;
   transform: translateY(20px);
