@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { GALLERY_IMAGES } from '../../content';
 
 @Component({
@@ -9,7 +10,11 @@ import { GALLERY_IMAGES } from '../../content';
   styleUrl: './gallery.component.scss',
 })
 export class GalleryComponent {
+  // A imagem atual é sempre images[0]; as setas rodam a lista.
   images: string[] = [...GALLERY_IMAGES];
+  lightboxOpen = false;
+
+  private readonly document = inject(DOCUMENT);
 
   nextImage() {
     const first = this.images.shift();
@@ -19,5 +24,40 @@ export class GalleryComponent {
   previousImage() {
     const last = this.images.pop();
     this.images.unshift(last!);
+  }
+
+  goTo(img: string) {
+    if (!this.images.includes(img)) return;
+    while (this.images[0] !== img) {
+      this.nextImage();
+    }
+  }
+
+  openLightbox() {
+    this.lightboxOpen = true;
+    // Impede a página de fazer scroll por trás do popup.
+    this.document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox() {
+    this.lightboxOpen = false;
+    this.document.body.style.overflow = '';
+  }
+
+  // Fecha ao clicar no fundo escuro (mas não na imagem, setas ou miniaturas).
+  onBackdropClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    if (target.classList.contains('lightbox') || target.classList.contains('lightbox-stage')) {
+      this.closeLightbox();
+    }
+  }
+
+  // Teclado no popup: Esc fecha, setas mudam de imagem.
+  @HostListener('document:keydown', ['$event'])
+  onKeydown(event: KeyboardEvent) {
+    if (!this.lightboxOpen) return;
+    if (event.key === 'Escape') this.closeLightbox();
+    if (event.key === 'ArrowRight') this.nextImage();
+    if (event.key === 'ArrowLeft') this.previousImage();
   }
 }

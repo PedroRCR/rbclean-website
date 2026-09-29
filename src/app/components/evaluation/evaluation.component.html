@@ -1,6 +1,10 @@
 <div class="evaluation-body">
   <div class="evaluation-header">
-    <strong>{{ name }}</strong>&nbsp;·&nbsp;<span class="evaluation-star" aria-hidden="true">★</span><strong [attr.aria-label]="numberOfStars + ' de 5 estrelas'">{{ ratingText }}</strong>
+    <strong>{{ name }}</strong
+    >&nbsp;·&nbsp;<span class="evaluation-star" aria-hidden="true">★</span
+    ><strong [attr.aria-label]="numberOfStars + ' de 5 estrelas'">{{
+      ratingText
+    }}</strong>
   </div>
   <div class="evaluation-comments">{{ comment }}</div>
 </div>
