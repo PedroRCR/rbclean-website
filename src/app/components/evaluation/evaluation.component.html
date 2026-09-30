@@ -2,7 +2,7 @@
   <div class="evaluation-header">
     <strong>{{ name }}</strong
     >&nbsp;·&nbsp;<span class="evaluation-star" aria-hidden="true">★</span
-    ><strong [attr.aria-label]="numberOfStars + ' de 5 estrelas'">{{
+    ><strong [attr.aria-label]="numberOfStars + ' ' + ('evaluations.outOf5' | t)">{{
       ratingText
     }}</strong>
   </div>

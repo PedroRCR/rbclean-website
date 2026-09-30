@@ -1,11 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ServiceCardComponent } from '../../components/service-card/service-card.component';
 import { SERVICES } from '../../content';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [ServiceCardComponent],
+  imports: [ServiceCardComponent, TranslatePipe],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })

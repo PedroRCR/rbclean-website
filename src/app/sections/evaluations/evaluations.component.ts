@@ -1,13 +1,15 @@
 import { Component, ElementRef, NgZone, OnDestroy, ViewChild, afterNextRender, inject } from '@angular/core';
 import { EvaluationComponent } from '../../components/evaluation/evaluation.component';
 import { EVALUATIONS, EVALUATIONS_SHOWN, Evaluation, GOOGLE_REVIEWS, STATS } from '../../content';
+import { TranslatePipe } from '../../i18n/translate.pipe';
+import { I18nService } from '../../i18n/i18n.service';
 
 const COUNT_UP_DURATION_MS = 1500;
 
 @Component({
   selector: 'app-evaluations',
   standalone: true,
-  imports: [EvaluationComponent],
+  imports: [EvaluationComponent, TranslatePipe],
   templateUrl: './evaluations.component.html',
   styleUrl: './evaluations.component.scss',
 })
@@ -19,7 +21,11 @@ export class EvaluationsComponent implements OnDestroy {
   evaluations: Evaluation[] = EVALUATIONS.slice(0, EVALUATIONS_SHOWN);
 
   readonly google = GOOGLE_REVIEWS;
-  readonly ratingText = GOOGLE_REVIEWS.rating.toLocaleString('pt-PT', { minimumFractionDigits: 1 });
+  private readonly i18n = inject(I18nService);
+
+  get ratingText(): string {
+    return this.i18n.formatRating(GOOGLE_REVIEWS.rating);
+  }
 
   private readonly zone = inject(NgZone);
   private observer?: IntersectionObserver; 

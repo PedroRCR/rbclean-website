@@ -1,13 +1,13 @@
-// Todo o conteúdo editável do site num só lugar.
-// Para mudar textos, serviços, avaliações ou contactos, basta editar este ficheiro.
+// Dados do site (menu, serviços, avaliações, contactos, galeria).
+// Os textos traduzíveis estão em i18n/translations.ts; aqui ficam as chaves ('nav.services', ...).
 
 export interface NavItem {
-  label: string;
+  labelKey: string;
   sectionId: string;
 }
 
 export interface ServiceItem {
-  title: string;
+  titleKey: string;
   image: string;
 }
 
@@ -18,11 +18,11 @@ export interface Evaluation {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Serviços', sectionId: 'services' },
-  { label: 'Sobre Nós', sectionId: 'about-us' },
-  { label: 'Avaliações', sectionId: 'evaluations' },
-  { label: 'Trabalhos', sectionId: 'gallery' },
-  { label: 'Contactos', sectionId: 'contacts' },
+  { labelKey: 'nav.services', sectionId: 'services' },
+  { labelKey: 'nav.aboutUs', sectionId: 'about-us' },
+  { labelKey: 'nav.evaluations', sectionId: 'evaluations' },
+  { labelKey: 'nav.gallery', sectionId: 'gallery' },
+  { labelKey: 'nav.contacts', sectionId: 'contacts' },
 ];
 
 export const CONTACTS = {
@@ -35,12 +35,12 @@ export const CONTACTS = {
 };
 
 export const SERVICES: ServiceItem[] = [
-  { title: 'Limpeza Sofás', image: 'assets/images/rbclean-home-img.webp' },
-  { title: 'Limpeza Carpetes', image: 'assets/images/rbclean-home-img.webp' },
-  { title: 'Limpeza Colchões', image: 'assets/images/rbclean-home-img.webp' },
-  { title: 'Limpeza Cadeiras', image: 'assets/images/rbclean-home-img.webp' },
-  { title: 'Limpeza Bancos de Carros', image: 'assets/images/rbclean-home-img.webp' },
-  { title: 'Impermeabilização', image: 'assets/images/rbclean-home-img.webp' },
+  { titleKey: 'services.sofas', image: 'assets/images/rbclean-home-img.webp' },
+  { titleKey: 'services.carpets', image: 'assets/images/rbclean-home-img.webp' },
+  { titleKey: 'services.mattresses', image: 'assets/images/rbclean-home-img.webp' },
+  { titleKey: 'services.chairs', image: 'assets/images/rbclean-home-img.webp' },
+  { titleKey: 'services.carSeats', image: 'assets/images/rbclean-home-img.webp' },
+  { titleKey: 'services.waterproofing', image: 'assets/images/rbclean-home-img.webp' },
 ];
 
 export const STATS = {

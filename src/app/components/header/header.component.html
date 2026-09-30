@@ -1,5 +1,5 @@
 <header>
-  <div class="header-container">
+  <div class="header-container" [class.at-home]="atHome" [class.menu-open]="menuOpen">
     <a class="logo-container header-left" href="#home" [class.hidden]="atHome">
       <div class="logo-img">
         <img
@@ -17,18 +17,22 @@
       <nav class="header-options">
         @for (item of navItems; track item.sectionId) {
           <header-item
-            [text]="item.label"
+            [text]="item.labelKey | t"
             [sectionId]="item.sectionId"
             [active]="item.sectionId === activeSection"
           ></header-item>
         }
       </nav>
     </div>
+    <!-- Botões PT/EN no header (só desktop; em mobile ficam dentro do menu). -->
+    <div class="lang-switch header-lang" role="group" [attr.aria-label]="'nav.language' | t">
+      <ng-container [ngTemplateOutlet]="langButtons"></ng-container>
+    </div>
     <button
       class="hamburger"
       (click)="toggleMenu()"
       [attr.aria-expanded]="menuOpen"
-      aria-label="Menu"
+      [attr.aria-label]="'nav.menu' | t"
     >
       <span class="material-symbols-outlined">
         {{ menuOpen ? "close" : "menu" }}
@@ -44,9 +48,24 @@
           [href]="'#' + item.sectionId"
           [class.active]="item.sectionId === activeSection"
           (click)="closeMenu()"
-          >{{ item.label }}</a
+          >{{ item.labelKey | t }}</a
         >
       }
     </nav>
+    <div class="lang-switch menu-lang" role="group" [attr.aria-label]="'nav.language' | t">
+      <ng-container [ngTemplateOutlet]="langButtons"></ng-container>
+    </div>
   </div>
 </header>
+
+<ng-template #langButtons>
+  @for (lang of langs; track lang) {
+    <button
+      [class.active]="i18n.lang() === lang"
+      [attr.aria-pressed]="i18n.lang() === lang"
+      (click)="i18n.setLang(lang)"
+    >
+      {{ lang.toUpperCase() }}
+    </button>
+  }
+</ng-template>

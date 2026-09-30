@@ -4,9 +4,9 @@
     [href]="whatsappUrl"
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="Contacte-nos pelo WhatsApp"
+    [attr.aria-label]="'home.bookAria' | t"
   >
-  AGENDAR
+  {{ 'home.book' | t }}
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15
@@ -36,10 +36,10 @@
     <app-logo-text [homePage]="true"></app-logo-text>
     <div class="home-description">
       <div class="home-description-text">
-        Devolva vida e frescor aos seus estofos com um serviço especializado.
+        {{ 'home.tagline' | t }}
       </div>
       <div class="home-description-subtext">
-        Sofás • Poltronas • Cadeiras • Colchões • Estofados automotivos
+        {{ 'home.items' | t }}
       </div>
     </div>
   </div>

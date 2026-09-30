@@ -1,24 +1,18 @@
 <div class="services-section">
   <div class="section-title">
-    <span>Conheça os Nossos Serviços</span>
+    <span>{{ 'services.title' | t }}</span>
   </div>
 
   <div class="section-description">
-    Oferecemos soluções completas de limpeza e higienização de colchões, focadas
-    na saúde, bem-estar e conforto da sua família. Utilizamos equipamentos
-    profissionais e produtos seguros para eliminar ácaros, bactérias, fungos,
-    odores e manchas, garantindo resultados visíveis e duradouros. Trabalhamos
-    com eficiência, pontualidade e atenção aos detalhes, adaptando cada serviço
-    às necessidades específicas de cada cliente. O nosso compromisso é
-    proporcionar um ambiente mais limpo, saudável e acolhedor em sua casa ou
-    empresa.
+    {{ 'services.description' | t }}
   </div>
 
   <div class="services-grid">
     <div class="carousel-nav">
-      <button (click)="prev()" [disabled]="currentIndex === 0">‹</button>
+      <button (click)="prev()" [disabled]="currentIndex === 0" [attr.aria-label]="'services.previous' | t">‹</button>
       <button
         (click)="next()"
+        [attr.aria-label]="'services.next' | t"
         [disabled]="currentIndex === services.length - 1"
       >
         ›
@@ -27,7 +21,7 @@
     <div class="cards-track" #servicesGrid>
       @for (service of services; track $index) {
         <div class="service-card">
-          <app-service-card [title]="service.title" [image]="service.image" />
+          <app-service-card [title]="service.titleKey | t" [image]="service.image" />
         </div>
       }
     </div>

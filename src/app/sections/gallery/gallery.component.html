@@ -1,12 +1,12 @@
 <div class="gallery">
   <div class="main-image">
-    <button class="zoom" (click)="openLightbox()" aria-label="Ver imagem em grande">
-      <img [src]="images[0]" alt="Trabalho realizado pela RB Clean" />
+    <button class="zoom" (click)="openLightbox()" [attr.aria-label]="'gallery.zoom' | t">
+      <img [src]="images[0]" [alt]="'gallery.imageAlt' | t" />
     </button>
-    <button class="arrow left-arrow" (click)="previousImage()" aria-label="Imagem anterior">
+    <button class="arrow left-arrow" (click)="previousImage()" [attr.aria-label]="'gallery.previous' | t">
       <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
     </button>
-    <button class="arrow right-arrow" (click)="nextImage()" aria-label="Imagem seguinte">
+    <button class="arrow right-arrow" (click)="nextImage()" [attr.aria-label]="'gallery.next' | t">
       <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
     </button>
   </div>
@@ -16,7 +16,7 @@
         class="image"
         [style.background-image]="'url(' + img + ')'"
         (click)="goTo(img)"
-        aria-label="Mostrar esta imagem"
+        [attr.aria-label]="'gallery.show' | t"
       ></button>
     }
   </div>
@@ -28,26 +28,26 @@
     class="lightbox"
     role="dialog"
     aria-modal="true"
-    aria-label="Galeria de trabalhos"
+    [attr.aria-label]="'gallery.dialog' | t"
     (click)="onBackdropClick($event)"
   >
-    <button class="lightbox-close" (click)="closeLightbox()" aria-label="Fechar">
+    <button class="lightbox-close" (click)="closeLightbox()" [attr.aria-label]="'gallery.close' | t">
       <span class="material-symbols-outlined" aria-hidden="true">close</span>
     </button>
 
     <div class="lightbox-stage">
-      <img class="lightbox-image" [src]="images[0]" alt="Trabalho realizado pela RB Clean" />
-      <button class="arrow left-arrow" (click)="previousImage()" aria-label="Imagem anterior">
+      <img class="lightbox-image" [src]="images[0]" [alt]="'gallery.imageAlt' | t" />
+      <button class="arrow left-arrow" (click)="previousImage()" [attr.aria-label]="'gallery.previous' | t">
         <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
       </button>
-      <button class="arrow right-arrow" (click)="nextImage()" aria-label="Imagem seguinte">
+      <button class="arrow right-arrow" (click)="nextImage()" [attr.aria-label]="'gallery.next' | t">
         <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
       </button>
     </div>
 
     <div class="lightbox-thumbs">
       @for (img of images.slice(1); track img) {
-        <button class="lightbox-thumb" (click)="goTo(img)" aria-label="Mostrar esta imagem">
+        <button class="lightbox-thumb" (click)="goTo(img)" [attr.aria-label]="'gallery.show' | t">
           <img [src]="img" alt="" />
         </button>
       }

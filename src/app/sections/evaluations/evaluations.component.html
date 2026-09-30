@@ -4,14 +4,14 @@
       <div class="evaluations-header-item-number">
         {{ clientesSatisfeitos }}+
       </div>
-      <div class="evaluations-header-item-text">Clientes Satisfeitos</div>
+      <div class="evaluations-header-item-text">{{ 'evaluations.satisfiedClients' | t }}</div>
     </div>
     <div class="vertical-line"></div>
     <div class="evaluations-header-item">
       <div class="evaluations-header-item-number">
         {{ servicosRealizados }}+
       </div>
-      <div class="evaluations-header-item-text">Serviços Realizados</div>
+      <div class="evaluations-header-item-text">{{ 'evaluations.servicesDone' | t }}</div>
     </div>
   </div>
 
@@ -29,7 +29,7 @@
     <div class="google-rating">
       <span class="google-rating-stars" aria-hidden="true">★</span>
       <strong>{{ ratingText }}</strong
-      >&nbsp;·&nbsp; +{{ google.count }} avaliações no Google
+      >&nbsp;·&nbsp; +{{ google.count }} {{ 'evaluations.onGoogle' | t }}
     </div>
     <div class="google-actions">
       <a
@@ -38,7 +38,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Ver todas no Google
+        {{ 'evaluations.seeAll' | t }}
       </a>
       <a
         class="btn"
@@ -46,7 +46,7 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Deixar avaliação
+        {{ 'evaluations.writeReview' | t }}
       </a>
     </div>
   </div>

@@ -1,10 +1,11 @@
 import { Component, HostListener, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { GALLERY_IMAGES } from '../../content';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
   selector: 'app-gallery',
-  imports: [],
+  imports: [TranslatePipe],
   standalone: true,
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
@@ -35,7 +36,6 @@ export class GalleryComponent {
 
   openLightbox() {
     this.lightboxOpen = true;
-    // Impede a página de fazer scroll por trás do popup.
     this.document.body.style.overflow = 'hidden';
   }
 

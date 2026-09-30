@@ -6,7 +6,8 @@ Site de página única da RB Clean (limpeza e higienização de estofos), public
 
 ## Estrutura
 
-- `src/app/content.ts`: **todo o conteúdo editável** (menu, serviços, avaliações, estatísticas, galeria, contactos).
+- `src/app/content.ts`: dados do site (menu, serviços, avaliações, estatísticas, galeria, contactos).
+- `src/app/i18n/translations.ts`: **todos os textos em PT e EN**. Nos templates usa-se `{{ 'nav.services' | t }}`. Para um texto novo: acrescentar a chave em `pt` e em `en` (o build falha se faltar numa das línguas).
 - `src/app/sections/`: uma pasta por secção da página (home, services, about-us, evaluations, gallery, contacts).
 - `src/app/components/`: peças reutilizáveis (header, cartões, logótipo).
 - `src/index.html`: título, descrição e metadados de SEO/partilha.

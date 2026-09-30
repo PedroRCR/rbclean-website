@@ -2,25 +2,21 @@
   <div class="about-content">
     <div class="about-text" id="about-us">
       <p class="highlight">
-        Na RBClean, acreditamos que um estofo limpo faz toda a diferença no conforto e bem-estar do seu lar ou espaço de trabalho.
+        {{ 'aboutUs.highlight' | t }}
       </p>
       <p>
-        Sediados em Bragança, somos especialistas na limpeza profissional de estofos — sofás, cadeiras, colchões, tapetes e muito mais —
-        utilizando equipamentos de alta performance e produtos seguros para a sua família e para o ambiente. O nosso método combina técnica,
-        experiência e cuidado, devolvendo vida e frescura aos seus estofos como se fossem novos.
+        {{ 'aboutUs.p1' | t }}
       </p>
       <p>
-        Ao longo do tempo, temos servido clientes particulares e empresas na região de Bragança e arredores, construindo uma reputação
-        assente na confiança, pontualidade e resultados visíveis. Para nós, cada trabalho é único — e é assim que o tratamos.
+        {{ 'aboutUs.p2' | t }}
       </p>
       <p>
-        Quando nos contacta, não está apenas a contratar um serviço de limpeza. Está a escolher tranquilidade, higiene e o cuidado
-        de quem trata o seu espaço como se fosse o seu próprio.
+        {{ 'aboutUs.p3' | t }}
       </p>
     </div>
   </div>
 
   <div class="about-visual">
-    <img class="person-img" src="assets/images/rbclean-bras.webp" alt="Profissional da RB Clean" width="421" height="671" loading="lazy" />
+    <img class="person-img" src="assets/images/rbclean-bras.webp" [alt]="'aboutUs.imageAlt' | t" width="421" height="671" loading="lazy" />
   </div>
 </div>

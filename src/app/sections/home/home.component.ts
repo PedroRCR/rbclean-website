@@ -1,11 +1,12 @@
 import { Component, NgZone, afterNextRender, inject } from '@angular/core';
 import { LogoTextComponent } from '../../components/logo-text/logo-text.component';
 import { CONTACTS } from '../../content';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [LogoTextComponent],
+  imports: [LogoTextComponent, TranslatePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
