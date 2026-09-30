@@ -8,11 +8,10 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
 import { LANGS } from '../../i18n/translations';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
-  imports: [HeaderItemComponent, LogoTextComponent, TranslatePipe, NgTemplateOutlet],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
+    imports: [HeaderItemComponent, LogoTextComponent, TranslatePipe, NgTemplateOutlet]
 })
 export class HeaderComponent {
   readonly navItems = NAV_ITEMS;
@@ -26,7 +25,8 @@ export class HeaderComponent {
 
   constructor() {
     // If the page opens mid-way (e.g. rbclean.pt/#contacts), set the initial state.
-    afterNextRender(() => this.zone.run(() => this.onScroll()));
+    // setTimeout: apply it after hydration's check, otherwise Angular reports NG0100 in dev mode.
+    afterNextRender(() => this.zone.run(() => setTimeout(() => this.onScroll())));
   }
 
   @HostListener('window:hashchange')

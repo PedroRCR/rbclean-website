@@ -8,11 +8,10 @@ import { I18nService } from '../../i18n/i18n.service';
 const COUNT_UP_DURATION_MS = 1500;
 
 @Component({
-  selector: 'app-evaluations',
-  standalone: true,
-  imports: [EvaluationComponent, TranslatePipe],
-  templateUrl: './evaluations.component.html',
-  styleUrl: './evaluations.component.scss',
+    selector: 'app-evaluations',
+    imports: [EvaluationComponent, TranslatePipe],
+    templateUrl: './evaluations.component.html',
+    styleUrl: './evaluations.component.scss'
 })
 export class EvaluationsComponent implements OnDestroy {
   @ViewChild('statsHeader') statsHeader?: ElementRef<HTMLElement>;
@@ -49,7 +48,10 @@ export class EvaluationsComponent implements OnDestroy {
   }
 
   private setupCountUp(): void {
-    if (typeof IntersectionObserver === 'undefined' || !this.statsHeader) {
+    // No count-up without IntersectionObserver or when the user prefers reduced motion:
+    // the final numbers (already rendered) stay as they are.
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (typeof IntersectionObserver === 'undefined' || !this.statsHeader || reduceMotion) {
       return;
     }
 

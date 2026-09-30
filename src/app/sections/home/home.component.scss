@@ -18,6 +18,7 @@
 .home-top {
   height: 80%;
   width: 100%;
+  box-sizing: border-box; 
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -39,7 +40,7 @@
 .home-description-subtext {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: clamp(0.6875rem, 0.3883rem + 0.9574vw, 1.25rem);
+  font-size: clamp(0.75rem, 0.3883rem + 0.9574vw, 1.25rem); /* min 12px */
   color: #a2a2a2;
   line-height: 1.4;
   max-width: min(90%, 700px);
@@ -54,12 +55,14 @@
       url("/assets/images/rbclean-home-img-mobile.webp");
   }
 
+  /* Text sits at the bottom of the screen whatever its height (instead of a fixed
+     420px from the top), leaving room below for the fixed BOOK button. */
   .home-top {
-    margin-top: 420px;
-    padding: 0 20px;
+    height: auto;
+    margin-top: auto;
+    padding: 0 20px 96px;
     align-items: center;
     text-align: center;
-    width: 100%;
   }
 
   .home-description-text {

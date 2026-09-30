@@ -4,11 +4,10 @@ import { SERVICES } from '../../content';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
-  selector: 'app-services',
-  standalone: true,
-  imports: [ServiceCardComponent, TranslatePipe],
-  templateUrl: './services.component.html',
-  styleUrl: './services.component.scss'
+    selector: 'app-services',
+    imports: [ServiceCardComponent, TranslatePipe],
+    templateUrl: './services.component.html',
+    styleUrl: './services.component.scss'
 })
 export class ServicesComponent {
   @ViewChild('servicesGrid') gridRef!: ElementRef<HTMLDivElement>;
@@ -51,20 +50,25 @@ export class ServicesComponent {
     return perPage * step;
   }
 
+  /** Instant scroll when the user asked the system to reduce motion. */
+  private get scrollBehavior(): ScrollBehavior {
+    return matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  }
+
   private get maxScroll(): number {
     return this.track.scrollWidth - this.track.clientWidth;
   }
 
   next(): void {
-    this.track.scrollBy({ left: this.pageWidth, behavior: 'smooth' });
+    this.track.scrollBy({ left: this.pageWidth, behavior: this.scrollBehavior });
   }
 
   prev(): void {
-    this.track.scrollBy({ left: -this.pageWidth, behavior: 'smooth' });
+    this.track.scrollBy({ left: -this.pageWidth, behavior: this.scrollBehavior });
   }
 
   goToPage(page: number): void {
-    this.track.scrollTo({ left: Math.min(page * this.pageWidth, this.maxScroll), behavior: 'smooth' });
+    this.track.scrollTo({ left: Math.min(page * this.pageWidth, this.maxScroll), behavior: this.scrollBehavior });
   }
 
   @HostListener('window:resize')

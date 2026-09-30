@@ -1,5 +1,5 @@
-import { Injectable, NgZone, afterNextRender, inject, signal } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Injectable, NgZone, afterNextRender, inject, signal, DOCUMENT } from '@angular/core';
+
 import { Meta } from '@angular/platform-browser';
 import { LANGS, Lang, TRANSLATIONS } from './translations';
 

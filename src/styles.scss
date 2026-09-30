@@ -2,11 +2,30 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Base font for any text without its own font-family (it has to live here, in the
+   global stylesheet: component styles are scoped and never reach <body>). */
 body {
   margin: 0;
   padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 section {
   scroll-margin-top: 60px;
+}
+
+/* Respect the system "reduce motion" setting: no smooth scrolling, animations or transitions. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

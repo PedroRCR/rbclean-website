@@ -205,3 +205,18 @@ $radius: 12px; // same radius for the gallery and its images
     height: 48px;
   }
 }
+
+/* Phone in landscape: cap the image to the screen height (minus the header) and let
+   the box shrink to the image width, so the whole photo fits on screen. */
+@media (max-width: 1024px) and (orientation: landscape) and (max-height: 600px) {
+  .gallery {
+    width: fit-content;
+    max-width: 90%;
+  }
+
+  .zoom img {
+    width: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 100px);
+  }
+}

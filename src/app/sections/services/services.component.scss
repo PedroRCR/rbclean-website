@@ -109,21 +109,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
 
+    /* 24px tap area (easy to hit with a finger); the visible dot is drawn by ::after. */
     button {
-        width: 8px;
-        height: 8px;
+        width: 24px;
+        height: 24px;
         padding: 0;
         border: none;
-        border-radius: 4px;
-        background: rgba(255, 255, 255, 0.5);
+        background: none;
         cursor: pointer;
-        transition: width 0.2s ease, background 0.2s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: width 0.2s ease;
+
+        &::after {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            transition: width 0.2s ease, background 0.2s ease;
+        }
 
         &.active {
-            width: 24px;
-            background: #fff;
+            width: 40px;
+
+            &::after {
+                width: 24px;
+                background: #fff;
+            }
         }
     }
 }

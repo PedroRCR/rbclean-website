@@ -11,11 +11,10 @@ import { I18nService } from '../../i18n/i18n.service';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
-  selector: 'app-contacts',
-  standalone: true,
-  imports: [TranslatePipe],
-  templateUrl: './contacts.component.html',
-  styleUrl: './contacts.component.scss',
+    selector: 'app-contacts',
+    imports: [TranslatePipe],
+    templateUrl: './contacts.component.html',
+    styleUrl: './contacts.component.scss'
 })
 export class ContactsComponent {
   readonly contacts = CONTACTS;

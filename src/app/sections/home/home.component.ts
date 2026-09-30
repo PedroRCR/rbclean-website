@@ -4,11 +4,10 @@ import { CONTACTS } from '../../content';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [LogoTextComponent, TranslatePipe],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+    selector: 'app-home',
+    imports: [LogoTextComponent, TranslatePipe],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   readonly whatsappUrl = CONTACTS.whatsapp;

@@ -3,11 +3,10 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
 import { I18nService } from '../../i18n/i18n.service';
 
 @Component({
-  selector: 'app-evaluation',
-  standalone: true,
-  imports: [TranslatePipe],
-  templateUrl: './evaluation.component.html',
-  styleUrl: './evaluation.component.scss',
+    selector: 'app-evaluation',
+    imports: [TranslatePipe],
+    templateUrl: './evaluation.component.html',
+    styleUrl: './evaluation.component.scss'
 })
 export class EvaluationComponent {
   @Input({ required: true }) numberOfStars!: number;

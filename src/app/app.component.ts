@@ -9,19 +9,18 @@ import { ContactsComponent } from './sections/contacts/contacts.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  imports: [
-    HeaderComponent,
-    HomeComponent,
-    ServicesComponent,
-    AboutUsComponent,
-    EvaluationsComponent,
-    GalleryComponent,
-    ContactsComponent,
-    FooterComponent,
-  ],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [
+        HeaderComponent,
+        HomeComponent,
+        ServicesComponent,
+        AboutUsComponent,
+        EvaluationsComponent,
+        GalleryComponent,
+        ContactsComponent,
+        FooterComponent,
+    ]
 })
 export class AppComponent {}
