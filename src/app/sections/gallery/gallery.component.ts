@@ -11,7 +11,7 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
   styleUrl: './gallery.component.scss',
 })
 export class GalleryComponent {
-  // A imagem atual é sempre images[0]; as setas rodam a lista.
+  // The current image is always images[0]; the arrows rotate the list.
   images: string[] = [...GALLERY_IMAGES];
   lightboxOpen = false;
 
@@ -44,7 +44,7 @@ export class GalleryComponent {
     this.document.body.style.overflow = '';
   }
 
-  // Fecha ao clicar no fundo escuro (mas não na imagem, setas ou miniaturas).
+  // Close when clicking the dark backdrop (but not the image, arrows or thumbnails).
   onBackdropClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
     if (target.classList.contains('lightbox') || target.classList.contains('lightbox-stage')) {
@@ -52,7 +52,7 @@ export class GalleryComponent {
     }
   }
 
-  // Teclado no popup: Esc fecha, setas mudam de imagem.
+  // Keyboard in the popup: Esc closes, arrow keys change image.
   @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent) {
     if (!this.lightboxOpen) return;

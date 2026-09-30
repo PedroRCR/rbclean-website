@@ -4,6 +4,8 @@
 
 .services-section {
     --card-h: 478px;
+    --dots-h: 36px; /* height of the dots row below the cards */
+    --side: clamp(24px, 5vw, 80px); /* carousel side margin */
     width: 100vw;
     position: relative;
     z-index: 2;
@@ -11,7 +13,8 @@
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    margin-bottom: calc(var(--card-h) / -2);
+    /* Cards overlap half of the next section; the dots sit below them. */
+    margin-bottom: calc(var(--card-h) / -2 - var(--dots-h));
     padding: clamp(40px, 5vw, 80px) 0 0;
 }
 
@@ -46,7 +49,7 @@
 .carousel-nav {
     position: absolute;
     top: 0;
-    right: clamp(24px, 5vw, 80px);
+    right: var(--side);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -56,7 +59,7 @@
 .carousel-nav button {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 10px; /* same as the BOOK button */
     border: none;
     background: rgba(255, 255, 255, .9);
     cursor: pointer;
@@ -82,7 +85,9 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: clamp(56px, 7vw, 90px) 0 0 clamp(24px, 5vw, 80px);
+    /* Equal space on both sides; snapping aligns the cards with it. */
+    padding: clamp(56px, 7vw, 90px) var(--side) 0;
+    scroll-padding-inline: var(--side);
     scrollbar-width: none;
     &::-webkit-scrollbar {
         display: none;
@@ -98,27 +103,45 @@
     border-radius: 16px;
 }
 
+/* ── Dots (one per page) ── */
+.carousel-dots {
+    height: var(--dots-h);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    button {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: none;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: width 0.2s ease, background 0.2s ease;
+
+        &.active {
+            width: 24px;
+            background: #fff;
+        }
+    }
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
     .services-section {
         --card-h: 400px;
+        --side: 24px;
     }
 
     .cards-track {
-        padding-left: 24px;
-        padding-right: 24px;
         gap: 16px;
-        scroll-snap-type: x mandatory;
     }
 
+    /* 80% width: a slice of the next card stays visible. */
     .service-card {
-        width: calc(100vw - 48px);
+        width: 80vw;
         height: 400px;
-        scroll-snap-align: center;
-    }
-
-    .carousel-nav {
-        top: 0;
-        right: 24px;
     }
 }

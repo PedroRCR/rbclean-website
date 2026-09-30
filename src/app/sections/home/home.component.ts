@@ -17,9 +17,9 @@ export class HomeComponent {
   private readonly zone = inject(NgZone);
 
   constructor() {
-    // Só no browser: evita que o pré-render fique à espera do timeout.
-    // O afterNextRender corre fora da zona do Angular; o zone.run garante
-    // que a alteração atualiza o ecrã.
+    // Browser only: keeps the prerender from waiting for the timeout.
+    // afterNextRender runs outside the Angular zone; zone.run makes sure
+    // the change refreshes the view.
     afterNextRender(() => {
       this.zone.run(() => {
         setTimeout(() => {

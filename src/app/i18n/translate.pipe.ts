@@ -2,8 +2,8 @@ import { Pipe, PipeTransform, inject } from '@angular/core';
 import { I18nService } from './i18n.service';
 
 /**
- * Traduz uma chave para a língua atual: {{ 'nav.services' | t }}
- * É "impure" para voltar a correr quando a língua muda (a chave em si não muda).
+ * Translates a key into the current language: {{ 'nav.services' | t }}
+ * Impure so it re-runs when the language changes (the key itself does not change).
  */
 @Pipe({ name: 't', standalone: true, pure: false })
 export class TranslatePipe implements PipeTransform {

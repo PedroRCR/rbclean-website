@@ -1,10 +1,10 @@
-# Configuração para o alojamento Apache (cPanel).
+# Configuration for Apache hosting (cPanel).
 
 Options -Indexes
 DirectoryIndex index.html
 
-# Cache: ficheiros com hash no nome (JS/CSS) podem ficar em cache 1 ano;
-# o index.html nunca fica em cache, para as atualizações aparecerem logo.
+# Cache: files with a hash in the name (JS/CSS) can be cached for 1 year;
+# index.html is never cached, so updates show up right away.
 <IfModule mod_headers.c>
   <FilesMatch "\.(js|css)$">
     Header set Cache-Control "public, max-age=31536000, immutable"

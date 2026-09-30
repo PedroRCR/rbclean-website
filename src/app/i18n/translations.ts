@@ -1,14 +1,24 @@
-// Textos do site em cada língua.
-// O português (pt) é a referência: o inglês (en) tem de ter exatamente as mesmas chaves,
-// senão o TypeScript dá erro no build. Nos templates usa-se: {{ 'nav.services' | t }}
+// All human-readable text on the site, per language.
+// Portuguese (pt) is the reference: English (en) must have exactly the same keys,
+// otherwise the build fails. In templates: {{ 'nav.services' | t }}
+
+import type { Evaluation } from '../content';
 
 export type Lang = 'pt' | 'en';
 
 export const LANGS: Lang[] = ['pt', 'en'];
 
+// Part of the brand name: the same in every language.
+const BRAND_SUBTITLE = 'Limpeza e Higienização de Estofos';
+
 const pt = {
   meta: {
     title: 'RB Clean | Limpeza e Higienização de Estofos em Bragança',
+    description:
+      'Limpeza e higienização profissional de sofás, colchões, cadeiras, carpetes e bancos de carro em Bragança e arredores. Peça já o seu orçamento pelo WhatsApp.',
+  },
+  brand: {
+    subtitle: BRAND_SUBTITLE,
   },
   nav: {
     services: 'Serviços',
@@ -31,6 +41,7 @@ const pt = {
       'Oferecemos soluções completas de limpeza e higienização de colchões, focadas na saúde, bem-estar e conforto da sua família. Utilizamos equipamentos profissionais e produtos seguros para eliminar ácaros, bactérias, fungos, odores e manchas, garantindo resultados visíveis e duradouros. Trabalhamos com eficiência, pontualidade e atenção aos detalhes, adaptando cada serviço às necessidades específicas de cada cliente. O nosso compromisso é proporcionar um ambiente mais limpo, saudável e acolhedor em sua casa ou empresa.',
     previous: 'Serviço anterior',
     next: 'Serviço seguinte',
+    page: 'Página',
     sofas: 'Limpeza Sofás',
     carpets: 'Limpeza Carpetes',
     mattresses: 'Limpeza Colchões',
@@ -63,6 +74,53 @@ const pt = {
     dialog: 'Galeria de trabalhos',
     close: 'Fechar',
   },
+  contacts: {
+    title: 'Fale connosco',
+    subtitle: 'Peça o seu orçamento por WhatsApp ou telefone.',
+    whatsapp: 'WhatsApp',
+    whatsappMessage: 'Olá! Gostaria de pedir um orçamento.',
+    call: 'Ligar',
+    area: 'Bragança e arredores',
+    homeService: 'Serviço ao domicílio',
+    alsoIn: 'Também em',
+    hours: 'Horário',
+    closed: 'Fechado',
+    days: {
+      weekdays: 'Segunda a sexta',
+      saturday: 'Sábado',
+      sunday: 'Domingo',
+    },
+    payment: 'Pagamento',
+    payments: {
+      mbway: 'MB WAY',
+      cash: 'Numerário',
+      transfer: 'Transferência bancária',
+      card: 'Cartão',
+    },
+    faqTitle: 'Perguntas frequentes',
+  },
+  faq: {
+    homeService: {
+      q: 'Deslocam-se a minha casa?',
+      a: 'Sim. Fazemos o serviço ao domicílio: vamos a sua casa ou empresa com todo o equipamento necessário.',
+    },
+    safeProducts: {
+      q: 'Os produtos são seguros?',
+      a: 'Sim. Utilizamos produtos seguros para a sua família e para o ambiente.',
+    },
+    price: {
+      q: 'Quanto custa?',
+      a: 'Depende do tipo de peça, do tamanho e do estado. Envie-nos fotos pelo WhatsApp e damos-lhe um orçamento.',
+    },
+    area: {
+      q: 'Em que zona trabalham?',
+      a: 'Estamos sediados em Bragança e servimos clientes particulares e empresas em Bragança e arredores.',
+    },
+  },
+  footer: {
+    rights: 'Todos os direitos reservados.',
+    backToTop: 'Voltar ao topo',
+  },
 };
 
 export type Translations = typeof pt;
@@ -70,6 +128,11 @@ export type Translations = typeof pt;
 const en: Translations = {
   meta: {
     title: 'RB Clean | Upholstery Cleaning and Sanitising in Bragança',
+    description:
+      'Professional cleaning and sanitising of sofas, mattresses, chairs, carpets and car seats in Bragança and the surrounding area. Ask for a quote on WhatsApp.',
+  },
+  brand: {
+    subtitle: BRAND_SUBTITLE,
   },
   nav: {
     services: 'Services',
@@ -92,6 +155,7 @@ const en: Translations = {
       'We offer complete mattress cleaning and sanitising solutions, focused on the health, well-being and comfort of your family. We use professional equipment and safe products to remove dust mites, bacteria, fungi, odours and stains, delivering visible and long-lasting results. We work efficiently and punctually, with attention to detail, tailoring each service to the specific needs of every client. Our commitment is to provide a cleaner, healthier and more welcoming environment in your home or business.',
     previous: 'Previous service',
     next: 'Next service',
+    page: 'Page',
     sofas: 'Sofa Cleaning',
     carpets: 'Carpet Cleaning',
     mattresses: 'Mattress Cleaning',
@@ -124,6 +188,98 @@ const en: Translations = {
     dialog: 'Our work gallery',
     close: 'Close',
   },
+  contacts: {
+    title: 'Get in touch',
+    subtitle: 'Ask for a quote on WhatsApp or by phone.',
+    whatsapp: 'WhatsApp',
+    whatsappMessage: 'Hello! I would like to ask for a quote.',
+    call: 'Call',
+    area: 'Bragança and surrounding area',
+    homeService: 'We come to you',
+    alsoIn: 'Also in',
+    hours: 'Opening hours',
+    closed: 'Closed',
+    days: {
+      weekdays: 'Monday to Friday',
+      saturday: 'Saturday',
+      sunday: 'Sunday',
+    },
+    payment: 'Payment',
+    payments: {
+      mbway: 'MB WAY',
+      cash: 'Cash',
+      transfer: 'Bank transfer',
+      card: 'Card',
+    },
+    faqTitle: 'Frequently asked questions',
+  },
+  faq: {
+    homeService: {
+      q: 'Do you come to my home?',
+      a: 'Yes. We work on site: we come to your home or business with all the equipment needed.',
+    },
+    safeProducts: {
+      q: 'Are the products safe?',
+      a: 'Yes. We use products that are safe for your family and the environment.',
+    },
+    price: {
+      q: 'How much does it cost?',
+      a: 'It depends on the type of item, its size and condition. Send us photos on WhatsApp and we will give you a quote.',
+    },
+    area: {
+      q: 'Which area do you cover?',
+      a: 'We are based in Bragança and serve private clients and businesses in Bragança and the surrounding area.',
+    },
+  },
+  footer: {
+    rights: 'All rights reserved.',
+    backToTop: 'Back to top',
+  },
 };
 
 export const TRANSLATIONS: Record<Lang, Translations> = { pt, en };
+
+// Customer reviews: real quotes, shown in their original language whatever the site language.
+export const REVIEWS: Evaluation[] = [
+  {
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
+    comment:
+      'Excelente profissional, tinha tinta numas cadeiras e a minha criança tinha feito uma pintura no sofá e ficou tudo impecável! Recomendo!',
+  },
+  {
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
+    comment: 'Limpeza bem feita, rápida e a um ótimo preço!',
+  },
+  {
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
+    comment:
+      'Excelente profissional...Trabalhou Com todo o cuidado durante todo o processo, não só com o mobiliário como com o espaço envolvente... Muito obrigado',
+  },
+  {
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
+    comment:
+      'O meu sofá estava com bastantes manchas. Posso dizer que ficou como novo. O Rui fez um excelente trabalho.',
+  },
+  {
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
+    comment:
+      'Atendimento espetacular, o sofá ficou impecável, MUITO cheiroso, todos elogiaram, ficou como novo! Recomendo a todos, serviços de confiança, 5 ⭐️',
+  },
+  {
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
+    comment:
+      'Fiquei muito satisfeito com o serviço! O Rui foi extremamente profissional, pontual e rápido na limpeza dos bancos do meu carro. O resultado ficou excelente, os estofados parecem novos! Além disso, ainda teve o cuidado de limpar o tecido das portas, o que foi uma ótima surpresa. Atendimento de qualidade, com atenção aos detalhes. Recomendo sem dúvida!',
+  },
+  {
+    name: "Pedro Miguel",
+    numberOfStars: 5.0,
+    comment:
+      'Trabalho muito bem feito, ficou super limpo que até parecia novo como veio da loja',
+  },
+];

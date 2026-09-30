@@ -25,7 +25,7 @@ export class HeaderComponent {
   private readonly zone = inject(NgZone);
 
   constructor() {
-    // Se a página abrir já a meio (ex.: rbclean.pt/#contacts), acerta o estado inicial.
+    // If the page opens mid-way (e.g. rbclean.pt/#contacts), set the initial state.
     afterNextRender(() => this.zone.run(() => this.onScroll()));
   }
 

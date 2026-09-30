@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
   selector: 'app-logo-text',
   standalone: true,
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './logo-text.component.html',
   styleUrl: './logo-text.component.scss'
 })

@@ -9,20 +9,28 @@
 
   <div class="services-grid">
     <div class="carousel-nav">
-      <button (click)="prev()" [disabled]="currentIndex === 0" [attr.aria-label]="'services.previous' | t">‹</button>
-      <button
-        (click)="next()"
-        [attr.aria-label]="'services.next' | t"
-        [disabled]="currentIndex === services.length - 1"
-      >
-        ›
-      </button>
+      <button (click)="prev()" [disabled]="!canPrev" [attr.aria-label]="'services.previous' | t">‹</button>
+      <button (click)="next()" [disabled]="!canNext" [attr.aria-label]="'services.next' | t">›</button>
     </div>
-    <div class="cards-track" #servicesGrid>
+    <div class="cards-track" #servicesGrid (scroll)="update()">
       @for (service of services; track $index) {
         <div class="service-card">
           <app-service-card [title]="service.titleKey | t" [image]="service.image" />
         </div>
+      }
+    </div>
+
+    <!-- One dot per page; clicking jumps to that page. -->
+    <div class="carousel-dots">
+      @if (pages.length > 1) {
+        @for (page of pages; track page) {
+          <button
+            [class.active]="page === activePage"
+            [attr.aria-current]="page === activePage ? 'true' : null"
+            [attr.aria-label]="('services.page' | t) + ' ' + (page + 1)"
+            (click)="goToPage(page)"
+          ></button>
+        }
       }
     </div>
   </div>

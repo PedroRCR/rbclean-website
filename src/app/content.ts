@@ -1,5 +1,5 @@
-// Dados do site (menu, serviços, avaliações, contactos, galeria).
-// Os textos traduzíveis estão em i18n/translations.ts; aqui ficam as chaves ('nav.services', ...).
+// Site data (menu, services, contacts, gallery).
+// All human-readable text lives in i18n/translations.ts; this file only holds keys ('nav.services', ...).
 
 export interface NavItem {
   labelKey: string;
@@ -32,7 +32,28 @@ export const CONTACTS = {
   whatsapp: 'https://wa.me/351932664130',
   instagram: 'https://www.instagram.com/rbclean_24/',
   facebook: 'https://www.facebook.com/p/RBClean-61563676792456/',
+  // TODO: fill in (e.g. 'geral@rbclean.pt'). Empty = not shown on the site.
+  email: '',
 };
+
+// ── Contacts section ──
+// The blocks below are only shown on the site when they have content.
+
+// Towns covered by the on-site service, besides Bragança.
+// TODO: fill in, e.g. ['Mirandela', 'Macedo de Cavaleiros', 'Vinhais'].
+export const SERVICE_AREAS: string[] = [];
+
+// Opening hours. `daysKey` is a key of 'contacts.days' in i18n/translations.ts;
+// `hours: null` shows "Closed".
+// TODO: fill in, e.g. [{ daysKey: 'weekdays', hours: '9h–19h' }, { daysKey: 'saturday', hours: '9h–13h' }, { daysKey: 'sunday', hours: null }]
+export const OPENING_HOURS: { daysKey: 'weekdays' | 'saturday' | 'sunday'; hours: string | null }[] = [];
+
+// Formas de pagamento (chaves de 'contacts.payments' em i18n/translations.ts).
+// TODO: fill in, e.g. ['mbway', 'cash', 'transfer'].
+export const PAYMENT_METHODS: ('mbway' | 'cash' | 'transfer' | 'card')[] = [];
+
+// FAQ: each key has a question (q) and answer (a) under 'faq' in translations.ts.
+export const FAQ_KEYS = ['homeService', 'safeProducts', 'price', 'area'] as const;
 
 export const SERVICES: ServiceItem[] = [
   { titleKey: 'services.sofas', image: 'assets/images/rbclean-home-img.webp' },
@@ -44,11 +65,11 @@ export const SERVICES: ServiceItem[] = [
 ];
 
 export const STATS = {
-  clientesSatisfeitos: 100,
-  servicosRealizados: 300,
+  satisfiedClients: 100,
+  servicesDone: 300,
 };
 
-// Perfil de Empresa no Google. Atualizar a nota e o total à mão de vez em quando.
+// Google Business Profile. Update the rating and count by hand from time to time.
 const GOOGLE_PLACE_ID = 'ChIJ8fv6rGZJOg0RO4pAA7s8xkY';
 
 export const GOOGLE_REVIEWS = {
@@ -58,54 +79,10 @@ export const GOOGLE_REVIEWS = {
   writeReviewUrl: `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`,
 };
 
-// Quantas avaliações aparecem de cada vez (escolhidas ao acaso no browser).
+// How many reviews are shown at a time (picked at random in the browser).
 export const EVALUATIONS_SHOWN = 3;
 
-export const EVALUATIONS: Evaluation[] = [
-  {
-    name: "Pedro Miguel",
-    numberOfStars: 5.0,
-    comment:
-      'Excelente profissional, tinha tinta numas cadeiras e a minha criança tinha feito uma pintura no sofá e ficou tudo impecável! Recomendo!',
-  },
-  {
-    name: "Pedro Miguel",
-    numberOfStars: 5.0,
-    comment: 'Limpeza bem feita, rápida e a um ótimo preço!',
-  },
-  {
-    name: "Pedro Miguel",
-    numberOfStars: 5.0,
-    comment:
-      'Excelente profissional...Trabalhou Com todo o cuidado durante todo o processo, não só com o mobiliário como com o espaço envolvente... Muito obrigado',
-  },
-  {
-    name: "Pedro Miguel",
-    numberOfStars: 5.0,
-    comment:
-      'O meu sofá estava com bastantes manchas. Posso dizer que ficou como novo. O Rui fez um excelente trabalho.',
-  },
-  {
-    name: "Pedro Miguel",
-    numberOfStars: 5.0,
-    comment:
-      'Atendimento espetacular, o sofá ficou impecável, MUITO cheiroso, todos elogiaram, ficou como novo! Recomendo a todos, serviços de confiança, 5 ⭐️',
-  },
-  {
-    name: "Pedro Miguel",
-    numberOfStars: 5.0,
-    comment:
-      'Fiquei muito satisfeito com o serviço! O Rui foi extremamente profissional, pontual e rápido na limpeza dos bancos do meu carro. O resultado ficou excelente, os estofados parecem novos! Além disso, ainda teve o cuidado de limpar o tecido das portas, o que foi uma ótima surpresa. Atendimento de qualidade, com atenção aos detalhes. Recomendo sem dúvida!',
-  },
-  {
-    name: "Pedro Miguel",
-    numberOfStars: 5.0,
-    comment:
-      'Trabalho muito bem feito, ficou super limpo que até parecia novo como veio da loja',
-  },
-];
-
-// TODO: substituir por fotos reais dos trabalhos (colocar em src/assets/images/).
+// TODO: replace with real photos of the work (put them in src/assets/images/).
 export const GALLERY_IMAGES: string[] = [
   'https://picsum.photos/seed/1/800/600',
   'https://picsum.photos/seed/2/800/600',

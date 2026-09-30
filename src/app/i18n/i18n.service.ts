@@ -1,5 +1,6 @@
 import { Injectable, NgZone, afterNextRender, inject, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Meta } from '@angular/platform-browser';
 import { LANGS, Lang, TRANSLATIONS } from './translations';
 
 const STORAGE_KEY = 'rbclean-lang';
@@ -9,13 +10,18 @@ export class I18nService {
   private readonly document = inject(DOCUMENT);
   private readonly zone = inject(NgZone);
 
-  // Português por omissão (é também a língua do HTML pré-renderizado).
+  // Portuguese by default (also the language of the prerendered HTML).
   readonly lang = signal<Lang>('pt');
 
+  private readonly meta = inject(Meta);
+
   constructor() {
-    // No browser, recupera a língua escolhida numa visita anterior.
-    // afterNextRender corre fora da zona do Angular; zone.run + setTimeout
-    // aplicam a mudança já depois da hidratação e atualizam o ecrã.
+    // Runs during prerender too, so the static HTML ships with the Portuguese meta tags.
+    this.applyMeta();
+
+    // In the browser, restore the language chosen on a previous visit.
+    // afterNextRender runs outside the Angular zone; zone.run + setTimeout
+    // apply the change after hydration and refresh the view.
     afterNextRender(() => {
       this.zone.run(() =>
         setTimeout(() => {
@@ -28,16 +34,28 @@ export class I18nService {
 
   setLang(lang: Lang) {
     this.lang.set(lang);
-    this.document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
-    this.document.title = this.t('meta.title');
+    this.applyMeta();
     try {
       localStorage.setItem(STORAGE_KEY, lang);
     } catch {
-      // Sem acesso ao localStorage (modo privado, etc.): a escolha só dura esta visita.
+      // No localStorage access (private mode, etc.): the choice only lasts this visit.
     }
   }
 
-  /** Número com uma casa decimal no formato da língua: 5 -> "5,0" (pt) / "5.0" (en). */
+  /** <html lang>, title, description and link-preview (Open Graph) tags in the current language. */
+  private applyMeta() {
+    const lang = this.lang();
+    const title = this.t('meta.title');
+    const description = this.t('meta.description');
+    this.document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
+    this.document.title = title;
+    this.meta.updateTag({ name: 'description', content: description });
+    this.meta.updateTag({ property: 'og:title', content: title });
+    this.meta.updateTag({ property: 'og:description', content: description });
+    this.meta.updateTag({ property: 'og:locale', content: lang === 'pt' ? 'pt_PT' : 'en_GB' });
+  }
+
+  /** Number with one decimal place in the language format: 5 -> "5,0" (pt) / "5.0" (en). */
   formatRating(value: number): string {
     return value.toLocaleString(this.lang() === 'pt' ? 'pt-PT' : 'en', {
       minimumFractionDigits: 1,
@@ -45,7 +63,7 @@ export class I18nService {
     });
   }
 
-  /** Devolve o texto de uma chave como 'nav.services' na língua atual. */
+  /** Returns the text for a key such as 'nav.services' in the current language. */
   t(key: string): string {
     const value = key
       .split('.')

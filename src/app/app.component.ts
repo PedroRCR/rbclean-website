@@ -6,6 +6,7 @@ import { AboutUsComponent } from './sections/about-us/about-us.component';
 import { EvaluationsComponent } from './sections/evaluations/evaluations.component';
 import { GalleryComponent } from './sections/gallery/gallery.component';
 import { ContactsComponent } from './sections/contacts/contacts.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { ContactsComponent } from './sections/contacts/contacts.component';
     EvaluationsComponent,
     GalleryComponent,
     ContactsComponent,
+    FooterComponent,
   ],
 })
 export class AppComponent {}

@@ -1,6 +1,7 @@
 import { Component, ElementRef, NgZone, OnDestroy, ViewChild, afterNextRender, inject } from '@angular/core';
 import { EvaluationComponent } from '../../components/evaluation/evaluation.component';
-import { EVALUATIONS, EVALUATIONS_SHOWN, Evaluation, GOOGLE_REVIEWS, STATS } from '../../content';
+import { EVALUATIONS_SHOWN, Evaluation, GOOGLE_REVIEWS, STATS } from '../../content';
+import { REVIEWS } from '../../i18n/translations';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 import { I18nService } from '../../i18n/i18n.service';
 
@@ -16,9 +17,9 @@ const COUNT_UP_DURATION_MS = 1500;
 export class EvaluationsComponent implements OnDestroy {
   @ViewChild('statsHeader') statsHeader?: ElementRef<HTMLElement>;
 
-  clientesSatisfeitos = STATS.clientesSatisfeitos;
-  servicosRealizados = STATS.servicosRealizados;
-  evaluations: Evaluation[] = EVALUATIONS.slice(0, EVALUATIONS_SHOWN);
+  satisfiedClients = STATS.satisfiedClients;
+  servicesDone = STATS.servicesDone;
+  evaluations: Evaluation[] = REVIEWS.slice(0, EVALUATIONS_SHOWN);
 
   readonly google = GOOGLE_REVIEWS;
   private readonly i18n = inject(I18nService);
@@ -34,7 +35,7 @@ export class EvaluationsComponent implements OnDestroy {
     afterNextRender(() => {
       this.zone.run(() =>
         setTimeout(() => {
-          this.evaluations = [...EVALUATIONS]
+          this.evaluations = [...REVIEWS]
             .sort(() => Math.random() - 0.5)
             .slice(0, EVALUATIONS_SHOWN);
           this.setupCountUp();
@@ -52,8 +53,8 @@ export class EvaluationsComponent implements OnDestroy {
       return;
     }
 
-    this.clientesSatisfeitos = 0;
-    this.servicosRealizados = 0;
+    this.satisfiedClients = 0;
+    this.servicesDone = 0;
 
     this.observer = new IntersectionObserver(
       ([entry]) => {
@@ -72,8 +73,8 @@ export class EvaluationsComponent implements OnDestroy {
     const step = (now: number) => {
       const progress = Math.min((now - start) / COUNT_UP_DURATION_MS, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      this.clientesSatisfeitos = Math.round(STATS.clientesSatisfeitos * eased);
-      this.servicosRealizados = Math.round(STATS.servicosRealizados * eased);
+      this.satisfiedClients = Math.round(STATS.satisfiedClients * eased);
+      this.servicesDone = Math.round(STATS.servicesDone * eased);
       if (progress < 1) {
         requestAnimationFrame(step);
       }

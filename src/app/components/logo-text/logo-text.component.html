@@ -1,5 +1,4 @@
 <div [class]="center ? 'centered-logo' : 'logo'">
     <span [class]="homePage ? 'logo-title-home' : 'logo-title'">RB Clean</span>
-    <!-- Faz parte da marca: fica sempre em português. -->
-    <span [class]="homePage ? 'logo-subtitle-home' : 'logo-subtitle'">Limpeza e Higienização de Estofos</span>
+    <span [class]="homePage ? 'logo-subtitle-home' : 'logo-subtitle'">{{ 'brand.subtitle' | t }}</span>
 </div>

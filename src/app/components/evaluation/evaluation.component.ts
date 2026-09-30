@@ -16,7 +16,7 @@ export class EvaluationComponent {
 
   private readonly i18n = inject(I18nService);
 
-  // Sempre com uma casa decimal, no formato da língua: "5,0" (pt) / "5.0" (en).
+  // Always one decimal place, in the current language format: "5,0" (pt) / "5.0" (en).
   get ratingText(): string {
     return this.i18n.formatRating(this.numberOfStars);
   }
