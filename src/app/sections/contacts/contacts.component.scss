@@ -1,12 +1,11 @@
-// Only fonts already used on the site: Montserrat 400/600 (the only weights loaded
-// in index.html) and Nunito 700 for the FAQ title.
+// Manrope 400/600/700 (the weights loaded in angular.json "styles").
 $blue: #1a7ed6;
 $title: #39628d;
 
 .contacts {
   padding: 48px 5% 56px;
   background: #f4f8fc;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-weight: 400;
   color: #333;
 
@@ -43,19 +42,19 @@ $title: #39628d;
 }
 
 .contacts-title {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600; // Montserrat is only loaded in 400 and 600
+  font-family: "Manrope", sans-serif;
+  font-weight: 700; // same as the other section titles
   font-size: clamp(28px, 4vw, 48px);
 }
 
 .faq h3 {
-  font-family: "Nunito", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-weight: 700;
 }
 
 .contacts-subtitle {
   margin: 8px 0 24px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: clamp(14px, 1.5vw, 20px);
   color: #555;
 }

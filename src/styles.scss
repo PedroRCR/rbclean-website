@@ -31,9 +31,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* No base font-family on purpose: text without its own font (e.g. the review comments)
-   keeps the browser default, as in the original design. */
+/* Manrope is the base font for all text; Sofia Sans (logo and BOOK button) is set
+   where it is used. */
 body {
+  font-family: "Manrope", sans-serif;
   margin: 0;
   padding: 0;
 }

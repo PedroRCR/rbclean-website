@@ -1,6 +1,3 @@
-// Site data (menu, services, contacts, gallery).
-// All human-readable text lives in i18n/translations.ts; this file only holds keys ('nav.services', ...).
-
 export interface NavItem {
   labelKey: string;
   sectionId: string;
@@ -22,9 +19,7 @@ export interface GalleryImage {
   thumb: string; // small version: thumbnail strips
 }
 
-// Public Cloudflare R2 bucket with the site photos (gallery + services).
 // TODO: switch to the custom domain (e.g. https://img.rbclean.pt) before going live:
-// r2.dev URLs are rate-limited and meant for testing only.
 export const IMAGES_BASE_URL = 'https://pub-34bf09c326144c64948fd66aed82ee9d.r2.dev/converted-images';
 
 export const NAV_ITEMS: NavItem[] = [
@@ -47,10 +42,6 @@ export const CONTACTS = {
 };
 
 // ── Contacts section ──
-// The blocks below are only shown on the site when they have content.
-
-// Towns covered by the on-site service, besides Bragança.
-// TODO: fill in, e.g. ['Mirandela', 'Macedo de Cavaleiros', 'Vinhais'].
 export const SERVICE_AREAS: string[] = [];
 
 // Opening hours. `daysKey` is a key of 'contacts.days' in i18n/translations.ts;
@@ -60,10 +51,14 @@ export const OPENING_HOURS: { daysKey: 'weekdays' | 'saturday' | 'sunday'; hours
 
 // Formas de pagamento (chaves de 'contacts.payments' em i18n/translations.ts).
 // TODO: fill in, e.g. ['mbway', 'cash', 'transfer'].
-export const PAYMENT_METHODS: ('mbway' | 'cash' | 'transfer' | 'card')[] = [];
+export const PAYMENT_METHODS: ('mbway' | 'cash' | 'transfer' | 'card')[] = ['mbway', 'cash', 'transfer'];
 
 // FAQ: each key has a question (q) and answer (a) under 'faq' in translations.ts.
 export const FAQ_KEYS = ['homeService', 'safeProducts', 'price', 'area'] as const;
+
+// "How it works" steps, in order: each key has a title and text under 'process.steps' in translations.ts.
+export const PROCESS_STEPS = ['contact', 'visit', 'pickup', 'cleaning', 'delivery'] as const;
+export type ProcessStep = (typeof PROCESS_STEPS)[number];
 
 export const SERVICES: ServiceItem[] = [
   { titleKey: 'services.sofas', image: 'assets/images/rbclean-home-img.webp' },

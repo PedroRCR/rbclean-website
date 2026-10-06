@@ -65,12 +65,40 @@ const pt = {
     seeAll: 'Ver todas no Google',
     writeReview: 'Deixar avaliação',
   },
+  process: {
+    title: 'Como Funciona',
+    description: 'Do primeiro contacto à entrega, tratamos de tudo. Um processo simples e sem complicações para si.',
+    steps: {
+      contact: {
+        title: 'Contacto',
+        text: 'Ligue-nos ou envie mensagem pelo WhatsApp com fotos das peças. Damos-lhe um orçamento e marcamos o dia que lhe der mais jeito.',
+      },
+      visit: {
+        title: 'Chegada a sua casa',
+        text: 'Chegamos à hora combinada com todo o equipamento e avaliamos o estado de cada peça.',
+      },
+      pickup: {
+        title: 'Recolha',
+        text: 'Recolhemos as peças a tratar e protegemos o espaço à volta, para que nada fique sujo.',
+      },
+      cleaning: {
+        title: 'Limpeza',
+        text: 'Aspiração profunda, tratamento de manchas e higienização com equipamento profissional e produtos seguros.',
+      },
+      delivery: {
+        title: 'Entrega',
+        text: 'Entregamos tudo limpo, fresco e no lugar. Só damos o trabalho por concluído quando estiver satisfeito.',
+      },
+    },
+    cta: 'Pronto para dar nova vida aos seus estofos?',
+  },
   gallery: {
+    title: 'Os Nossos Trabalhos',
+    description: 'Alguns dos sofás, cadeiras e bancos de carro a que já devolvemos a vida.',
     imageAlt: 'Trabalho realizado pela RB Clean',
     zoom: 'Ver imagem em grande',
     previous: 'Imagem anterior',
     next: 'Imagem seguinte',
-    show: 'Mostrar esta imagem',
     dialog: 'Galeria de trabalhos',
     close: 'Fechar',
   },
@@ -178,12 +206,40 @@ const en: Translations = {
     seeAll: 'See all on Google',
     writeReview: 'Write a review',
   },
+  process: {
+    title: 'How It Works',
+    description: 'From the first contact to delivery, we take care of everything. A simple, hassle-free process for you.',
+    steps: {
+      contact: {
+        title: 'Contact',
+        text: 'Call us or send a WhatsApp message with photos of your items. We give you a quote and book the day that suits you best.',
+      },
+      visit: {
+        title: 'We arrive at your home',
+        text: 'We arrive at the agreed time with all the equipment and assess the condition of each item.',
+      },
+      pickup: {
+        title: 'Pick-up',
+        text: 'We collect the items to be treated and protect the surrounding area, so nothing gets dirty.',
+      },
+      cleaning: {
+        title: 'Cleaning',
+        text: 'Deep vacuuming, stain treatment and sanitising with professional equipment and safe products.',
+      },
+      delivery: {
+        title: 'Delivery',
+        text: 'Everything is returned clean, fresh and in its place. The job is only done when you are happy.',
+      },
+    },
+    cta: 'Ready to bring your upholstery back to life?',
+  },
   gallery: {
+    title: 'Our Work',
+    description: 'Some of the sofas, chairs and car seats we have brought back to life.',
     imageAlt: 'Work done by RB Clean',
     zoom: 'View larger image',
     previous: 'Previous image',
     next: 'Next image',
-    show: 'Show this image',
     dialog: 'Our work gallery',
     close: 'Close',
   },
