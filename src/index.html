@@ -46,12 +46,10 @@
 
   <link rel="preload" as="image" href="assets/images/rbclean-home-img.webp" media="(min-width: 769px)">
   <link rel="preload" as="image" href="assets/images/rbclean-home-img-mobile.webp" media="(max-width: 768px)">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat:wght@400;600&family=Nunito:wght@400;600;700&family=Sofia+Sans+Extra+Condensed:wght@400;700&family=Sofia+Sans+Condensed:wght@700&family=Material+Symbols+Outlined&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Photos are served from Cloudflare R2 (IMAGES_BASE_URL in content.ts): open the connection early. -->
+  <link rel="preconnect" href="https://pub-34bf09c326144c64948fd66aed82ee9d.r2.dev">
+  <!-- Fonts are self-hosted (see styles.scss); the tiny icon font is preloaded so the menu icon shows right away. -->
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/material-symbols-outlined.woff2" crossorigin>
 </head>
 <body>
   <app-root></app-root>

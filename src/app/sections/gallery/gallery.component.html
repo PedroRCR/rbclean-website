@@ -1,7 +1,7 @@
 <div class="gallery">
   <div class="main-image">
     <button class="zoom" (click)="openLightbox()" [attr.aria-label]="'gallery.zoom' | t">
-      <img [src]="images[0]" [alt]="'gallery.imageAlt' | t" />
+      <img [src]="images[0].full" [alt]="'gallery.imageAlt' | t" />
     </button>
     <button class="arrow left-arrow" (click)="previousImage()" [attr.aria-label]="'gallery.previous' | t">
       <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
@@ -11,10 +11,10 @@
     </button>
   </div>
   <div class="secondary-images">
-    @for (img of images.slice(1); track img) {
+    @for (img of images.slice(1); track img.full) {
       <button
         class="image"
-        [style.background-image]="'url(' + img + ')'"
+        [style.background-image]="'url(' + img.thumb + ')'"
         (click)="goTo(img)"
         [attr.aria-label]="'gallery.show' | t"
       ></button>
@@ -37,7 +37,7 @@
     </button>
 
     <div class="lightbox-stage">
-      <img class="lightbox-image" [src]="images[0]" [alt]="'gallery.imageAlt' | t" />
+      <img class="lightbox-image" [src]="images[0].full" [alt]="'gallery.imageAlt' | t" />
       <button class="arrow left-arrow" (click)="previousImage()" [attr.aria-label]="'gallery.previous' | t">
         <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
       </button>
@@ -47,9 +47,9 @@
     </div>
 
     <div class="lightbox-thumbs">
-      @for (img of images.slice(1); track img) {
+      @for (img of images.slice(1); track img.full) {
         <button class="lightbox-thumb" (click)="goTo(img)" [attr.aria-label]="'gallery.show' | t">
-          <img [src]="img" alt="" />
+          <img [src]="img.thumb" alt="" loading="lazy" />
         </button>
       }
     </div>

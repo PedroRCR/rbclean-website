@@ -18,7 +18,7 @@
 .home-top {
   height: 80%;
   width: 100%;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -77,81 +77,45 @@
   }
 }
 
+/* Fixed BOOK button: looks like the contacts WhatsApp button (.action.action-whatsapp in
+   styles.scss), with the brand font; appears after a short delay. */
 .whatsapp-btn {
-  font-family: "Sofia Sans Extra Condensed", sans-serif;
-  font-size: 16px;
   position: fixed;
   bottom: 32px;
   right: 32px;
-  width: 300px;
-  height: 56px;
-  background-color: #25d366;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+  width: 200px;
+  height: 36px;
   z-index: 1000;
-  animation: whatsapp-bounce 2s ease infinite;
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
+  justify-content: center;
+  /* Text and icon sized to the 36px-tall content box (60px with the .action padding). */
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  gap: 12px;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-  flex-direction: row;
-  gap: 10%;
-  color: white;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
 
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
-  animation: none;
 
-  svg {
-    width: 30px;
-    height: 30px;
-    fill: white;
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
   }
 
   &:hover {
-    animation-play-state: paused;
-    transform: scale(1.1);
     background-color: #1ebe5d;
-    cursor: pointer;
-  }
-
-  &:active {
-    transform: scale(0.96);
-  }
-
-  span {
-    color: white;
-    font-size: 32px;
-    font-family: "Sofia Sans Extra Condensed", sans-serif;
-    word-spacing: 10px;
-  }
-}
-
-.whatsapp-btn.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity 0.4s ease,
-    transform 0.4s ease;
-}
-
-@keyframes whatsapp-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  30% {
-    transform: translateY(-12px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-  70% {
-    transform: translateY(-10px);
-  }
-  85% {
-    transform: translateY(-3px);
   }
 }
 
@@ -159,16 +123,5 @@
   .whatsapp-btn {
     bottom: 20px;
     right: 20px;
-    width: 200px;
-    height: 52px;
-
-    svg {
-      width: 27px;
-      height: 27px;
-    }
-
-    span {
-      font-size: 24px;
-    }
   }
 }

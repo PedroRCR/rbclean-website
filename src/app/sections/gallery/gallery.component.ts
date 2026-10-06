@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, ViewChild, inject, DOCUMENT } from '@angular/core';
 
-import { GALLERY_IMAGES } from '../../content';
+import { GALLERY_IMAGES, GalleryImage } from '../../content';
 import { TranslatePipe } from '../../i18n/translate.pipe';
 
 @Component({
@@ -11,7 +11,7 @@ import { TranslatePipe } from '../../i18n/translate.pipe';
 })
 export class GalleryComponent {
   // The current image is always images[0]; the arrows rotate the list.
-  images: string[] = [...GALLERY_IMAGES];
+  images: GalleryImage[] = [...GALLERY_IMAGES];
   lightboxOpen = false;
 
   @ViewChild('lightbox') lightboxRef?: ElementRef<HTMLElement>;
@@ -30,7 +30,7 @@ export class GalleryComponent {
     this.images.unshift(last!);
   }
 
-  goTo(img: string) {
+  goTo(img: GalleryImage) {
     if (!this.images.includes(img)) return;
     while (this.images[0] !== img) {
       this.nextImage();

@@ -8,6 +8,7 @@ Site de página única da RB Clean (limpeza e higienização de estofos), public
 
 - `src/app/content.ts`: dados do site (menu, serviços, avaliações, estatísticas, galeria, contactos).
 - `src/app/i18n/translations.ts`: **todos os textos em PT e EN**. Nos templates usa-se `{{ 'nav.services' | t }}`. Para um texto novo: acrescentar a chave em `pt` e em `en` (o build falha se faltar numa das línguas).
+- **Fontes alojadas no site** (sem pedidos ao Google): as de texto vêm dos pacotes `@fontsource/*` listados em `angular.json` → `styles`; os ícones são `src/assets/fonts/material-symbols-outlined.woff2`, só com os ícones usados. Para um ícone novo, ver o comentário no topo de `src/styles.scss`.
 - `src/app/sections/`: uma pasta por secção da página (home, services, about-us, evaluations, gallery, contacts).
 - `src/app/components/`: peças reutilizáveis (header, cartões, logótipo).
 - `src/index.html`: título, descrição e metadados de SEO/partilha.

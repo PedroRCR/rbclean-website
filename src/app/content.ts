@@ -17,6 +17,16 @@ export interface Evaluation {
   comment: string;
 }
 
+export interface GalleryImage {
+  full: string; // large version: main image and popup
+  thumb: string; // small version: thumbnail strips
+}
+
+// Public Cloudflare R2 bucket with the site photos (gallery + services).
+// TODO: switch to the custom domain (e.g. https://img.rbclean.pt) before going live:
+// r2.dev URLs are rate-limited and meant for testing only.
+export const IMAGES_BASE_URL = 'https://pub-34bf09c326144c64948fd66aed82ee9d.r2.dev/converted-images';
+
 export const NAV_ITEMS: NavItem[] = [
   { labelKey: 'nav.services', sectionId: 'services' },
   { labelKey: 'nav.aboutUs', sectionId: 'about-us' },
@@ -61,7 +71,7 @@ export const SERVICES: ServiceItem[] = [
   { titleKey: 'services.mattresses', image: 'assets/images/rbclean-home-img.webp' },
   { titleKey: 'services.chairs', image: 'assets/images/rbclean-home-img.webp' },
   { titleKey: 'services.carSeats', image: 'assets/images/rbclean-home-img.webp' },
-  { titleKey: 'services.waterproofing', image: 'assets/images/rbclean-home-img.webp' },
+  { titleKey: 'services.waterproofing', image: `${IMAGES_BASE_URL}/services/gotas.webp` },
 ];
 
 export const STATS = {
@@ -82,11 +92,21 @@ export const GOOGLE_REVIEWS = {
 // How many reviews are shown at a time (picked at random in the browser).
 export const EVALUATIONS_SHOWN = 3;
 
-// TODO: replace with real photos of the work (put them in src/assets/images/).
-export const GALLERY_IMAGES: string[] = [
-  'https://picsum.photos/seed/1/800/600',
-  'https://picsum.photos/seed/2/800/600',
-  'https://picsum.photos/seed/3/800/600',
-  'https://picsum.photos/seed/4/800/600',
-  'https://picsum.photos/seed/5/800/600',
-];
+// Gallery photos in the R2 bucket: each name has gallery/<name>.webp and gallery/<name>-thumb.webp.
+// The order here is the order on the site.
+const galleryImage = (name: string): GalleryImage => ({
+  full: `${IMAGES_BASE_URL}/gallery/${name}.webp`,
+  thumb: `${IMAGES_BASE_URL}/gallery/${name}-thumb.webp`,
+});
+
+export const GALLERY_IMAGES: GalleryImage[] = [
+  'sofa-01',
+  'sofa-02',
+  'chairs-01',
+  'sofa-03',
+  'car-02',
+  'sofa-04',
+  'chairs-02',
+  'sofa-05',
+  'car-01',
+].map(galleryImage);

@@ -44,6 +44,15 @@
               }
             ],
             "styles": [
+              "node_modules/@fontsource/montserrat/latin-400.css",
+              "node_modules/@fontsource/montserrat/latin-600.css",
+              "node_modules/@fontsource/nunito/latin-400.css",
+              "node_modules/@fontsource/nunito/latin-600.css",
+              "node_modules/@fontsource/nunito/latin-700.css",
+              "node_modules/@fontsource/inter/latin-600.css",
+              "node_modules/@fontsource/sofia-sans-condensed/latin-700.css",
+              "node_modules/@fontsource/sofia-sans-extra-condensed/latin-400.css",
+              "node_modules/@fontsource/sofia-sans-extra-condensed/latin-700.css",
               "src/styles.scss"
             ],
             "scripts": [],

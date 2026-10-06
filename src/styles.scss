@@ -1,17 +1,70 @@
+/* Fonts are self-hosted (no requests to Google): the text fonts come from the
+   @fontsource packages listed in angular.json "styles"; the icon font below is a
+   subset of Material Symbols Outlined with only the icons the site uses.
+   To add an icon: download a new subset from Google Fonts with the extra name in
+   &icon_names= (alphabetical order) and replace assets/fonts/material-symbols-outlined.woff2. */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("/assets/fonts/material-symbols-outlined.woff2") format("woff2");
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Base font for any text without its own font-family (it has to live here, in the
-   global stylesheet: component styles are scoped and never reach <body>). */
+/* No base font-family on purpose: text without its own font (e.g. the review comments)
+   keeps the browser default, as in the original design. */
 body {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
 }
 
 section {
   scroll-margin-top: 60px;
+}
+
+/* Contact buttons (WhatsApp / call): shared by the contacts section and the fixed BOOK button. */
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.action-whatsapp {
+  background: #25d366;
+}
+
+.action-call {
+  background: #1a7ed6;
 }
 
 /* Respect the system "reduce motion" setting: no smooth scrolling, animations or transitions. */
